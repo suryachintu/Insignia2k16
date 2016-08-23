@@ -15,10 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.surya.insignia2k16.Constants;
 import com.example.surya.insignia2k16.R;
 import com.example.surya.insignia2k16.chat.GlobalChat;
 import com.example.surya.insignia2k16.chat.auth.Login;
@@ -115,6 +117,19 @@ public class MainActivity extends AppCompatActivity
         mReference = FirebaseDatabase.getInstance().getReference();
 
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
+        mRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+
+                        Toast.makeText(MainActivity.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,detail_events.class);
+                        intent.putExtra("p",position);
+                        startActivity(intent);
+
+                    }
+                })
+        );
 
 //       myAdapter.SetOnItemClickListener(new Events_Adapter().OnItemClickListener() {
 //            @Override
