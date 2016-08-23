@@ -38,7 +38,8 @@ public class detail_events extends AppCompatActivity {
         toolbarLayout.setExpandedTitleTextAppearance(R.style.expandedappbar);
 
         mDetail_description = (TextView)findViewById(R.id.details_description_text);
-
+        mRegister_button = (Button)findViewById(R.id.detail_register_button);
+        mImageView = (ImageView)findViewById(R.id.collapsed_image);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -54,16 +55,17 @@ public class detail_events extends AppCompatActivity {
 
         final int position = getIntent().getIntExtra("p",0);
         toolbarLayout.setTitle(Constants.mEvents_names[position]);
-        mRegister_button = (Button)findViewById(R.id.detail_register_button);
+
+
         mRegister_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registration(position);
             }
         });
-//        mImageView.setImageResource(Constants.mEvents_posters[position]);
-//        mTextView.setText(Constants.mEvents_names[position]);
+        mImageView.setImageResource(Constants.mEvents_posters[position]);
         mDetail_description.setText(getString(Constants.mEvents_description[position]));
+
 //
     }
 

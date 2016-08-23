@@ -131,27 +131,6 @@ public class MainActivity extends AppCompatActivity
                 })
         );
 
-//       myAdapter.SetOnItemClickListener(new Events_Adapter().OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View view, int position) {
-//                Log.e("xxxxxx","cxxxxxxxxxxxxxx");
-//                Toast.makeText(MainActivity.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(MainActivity.this,detail_events.class);
-//                intent.putExtra("p",position);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        myAdapter.SetOnItemClickListener(new Events_Adapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View view, int position) {
-//                Log.e("xxxxxx","cxxxxxxxxxxxxxx");
-//                Toast.makeText(MainActivity.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(MainActivity.this,detail_events.class);
-//                intent.putExtra("p",position);
-//                startActivity(intent);
-//            }
-//        });
 
         /*end of newly added*/
 
@@ -221,7 +200,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, MapsActivity.class));
 
         } else if (id == R.id.nav_share) {
-
+                onInviteClicked();
         } else if (id == R.id.nav_send) {
 
         }
