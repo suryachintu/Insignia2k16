@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Lecturer Theatre - 2"
-                    android:id="@+id/textView3"/>
+                    android:id="@+id/venue_name"/>
 
                 <TextView
                     android:layout_width="wrap_content"

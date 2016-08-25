@@ -2,7 +2,6 @@ package com.example.surya.insignia2k16.events_main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,7 +25,7 @@ import com.example.surya.insignia2k16.R;
 import com.example.surya.insignia2k16.chat.GlobalChat;
 import com.example.surya.insignia2k16.chat.auth.Login;
 import com.example.surya.insignia2k16.instafeed.Instafeed;
-import com.example.surya.insignia2k16.locate.MapsActivity;
+import com.example.surya.insignia2k16.locate.Locate;
 import com.google.android.gms.appinvite.AppInvite;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.android.gms.appinvite.AppInviteInvitationResult;
@@ -34,11 +33,18 @@ import com.google.android.gms.appinvite.AppInviteReferral;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener ,GoogleApiClient.OnConnectionFailedListener {
@@ -48,17 +54,20 @@ public class MainActivity extends AppCompatActivity
     FirebaseAuth mFirebaseAuth;
     DatabaseReference mReference;
     FirebaseUser mFirebaseUser;
+    FirebaseRemoteConfig mRemoteConfig;
     RecyclerView mRecyclerView;
     GoogleApiClient mGoogleApiClient;
     Time Conf_time = new Time(Time.getCurrentTimezone());
     ImageView mImageView;
+
     TextView mTextView,mDays,mHours, mMin;
-    int hour = 22;
-    int minute = 33;
-    int second = 0;
-    int monthDay = 28;
-    int month = 7;
-    int year;
+    private TextView mEvent_venue;
+//    int hour = 22;
+//    int minute = 33;
+//    int second = 0;
+//    int monthDay = 28;
+//    int month = 7;
+//    int year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,15 +76,36 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Initialize Firebase Remote Config.
+        mRemoteConfig = FirebaseRemoteConfig.getInstance();
+
+        // Define Firebase Remote Config Settings.
+        FirebaseRemoteConfigSettings firebaseRemoteConfigSettings =
+                            new FirebaseRemoteConfigSettings.Builder()
+                                .setDeveloperModeEnabled(true)
+                                .build();
+
+        // Define default config values. Defaults are used when fetched config values are not
+        // available. Eg: if an error occurred fetching values from the server.
+        Map<String, Object> defaultConfigMap = new HashMap<>();
+        defaultConfigMap.put("event_venue", "To be declared");
+
+        // Apply config settings and default values.
+        mRemoteConfig.setConfigSettings(firebaseRemoteConfigSettings);
+        mRemoteConfig.setDefaults(defaultConfigMap);
+
+        // Fetch remote config.
+                fetchConfig();
+
         /*newly added* */
 
-        mDays = (TextView)findViewById(R.id.days);
-        mHours = (TextView)findViewById(R.id.hours);
-        mMin = (TextView)findViewById(R.id.mins);
-
-        Conf_time.setToNow();
-        year = Conf_time.year;
-        countdown_init();
+//        mDays = (TextView)findViewById(R.id.days);
+//        mHours = (TextView)findViewById(R.id.hours);
+//        mMin = (TextView)findViewById(R.id.mins);
+//
+//        Conf_time.setToNow();
+//        year = Conf_time.year;
+//        countdown_init();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(AppInvite.API)
@@ -154,9 +184,50 @@ public class MainActivity extends AppCompatActivity
         mImageView = (ImageView) header.findViewById(R.id.profile_image_main);
     }
 
+    private void fetchConfig() {
+
+        // Fetch the config to determine the allowed length of messages.
+            long cacheExpiration = 3600; // 1 hour in seconds
+            // If developer mode is enabled reduce cacheExpiration to 0 so that
+            // each fetch goes to the server. This should not be used in release
+            // builds.
+            if (mRemoteConfig.getInfo().getConfigSettings()
+                    .isDeveloperModeEnabled()) {
+                cacheExpiration = 0;
+            }
+            mRemoteConfig.fetch(cacheExpiration)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Make the fetched config available via
+                            // FirebaseRemoteConfig get<type> calls.
+                            mRemoteConfig.activateFetched();
+                            applyRetrievedLengthLimit();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // There has been an error fetching the config
+                            Log.w("hi", "Error fetching config: " +
+                                    e.getMessage());
+                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            applyRetrievedLengthLimit();
+                        }
+                    });
+
+    }
+
+    private void applyRetrievedLengthLimit() {
+
+         Constants.event_name = mRemoteConfig.getString("event_venue");
+
+
+    }
+
     private void countdown_init() {
 
-        Conf_time.set(second, minute, hour, monthDay, month, year);
+       /* Conf_time.set(second, minute, hour, monthDay, month, year);
         Conf_time.normalize(true);
         long confMillis = Conf_time.toMillis(true);
 
@@ -184,7 +255,7 @@ public class MainActivity extends AppCompatActivity
             public void onFinish() {
 
             }
-        }.start();
+        }.start();*/
 
     }
 
@@ -213,7 +284,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_logout) {
+            mFirebaseAuth.signOut();
+            startActivity(new Intent(MainActivity.this,Login.class));
+            finish();
             return true;
         }
 
@@ -240,7 +314,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_locate) {
 
-            startActivity(new Intent(MainActivity.this, MapsActivity.class));
+            startActivity(new Intent(MainActivity.this, Locate.class));
 
         } else if (id == R.id.nav_share) {
                 onInviteClicked();
@@ -296,7 +370,10 @@ public class MainActivity extends AppCompatActivity
             finish();
             return;
         }
+        if (mFirebaseUser.getDisplayName() != null)
         mTextView.setText(mFirebaseUser.getDisplayName());
+        else
+        mTextView.setText(mFirebaseUser.getEmail());
         if (mFirebaseUser.getPhotoUrl() != null)
         Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(mImageView);
     }

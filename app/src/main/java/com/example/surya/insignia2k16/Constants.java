@@ -25,7 +25,7 @@ public class Constants {
                                 };
 
     //tree roots
-    public static final String USERS = "users";
+    public static String event_name = "dummy";
     public static final String MESSAGES = "messages";
 
 

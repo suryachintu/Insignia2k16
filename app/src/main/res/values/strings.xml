@@ -192,6 +192,8 @@
     </string>
     <string name="action_logout">Logout</string>
     <string name="venue">Venue :</string>
+    <string name="title_activity_locate">NIT DELHI</string>
+    <string name="address">National Institute of Technology Delhi\n Institute of Applied Manpower Research (IAMR Campus)\n A-7, Institutional Area\n Near Satyawadi Raja Harish Chandra Hospital,\n Narela, Delhi – 110040</string>
 
 
 </resources>

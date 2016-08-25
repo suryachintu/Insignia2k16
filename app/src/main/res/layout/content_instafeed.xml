@@ -13,4 +13,14 @@
     tools:context="com.example.surya.insignia2k16.instafeed.Instafeed"
     tools:showIn="@layout/activity_instafeed">
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
+
+
 </RelativeLayout>
