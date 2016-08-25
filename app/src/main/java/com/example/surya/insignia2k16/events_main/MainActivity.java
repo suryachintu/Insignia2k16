@@ -1,8 +1,8 @@
 package com.example.surya.insignia2k16.events_main;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,6 +38,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener ,GoogleApiClient.OnConnectionFailedListener {
@@ -48,8 +50,15 @@ public class MainActivity extends AppCompatActivity
     FirebaseUser mFirebaseUser;
     RecyclerView mRecyclerView;
     GoogleApiClient mGoogleApiClient;
+    Time Conf_time = new Time(Time.getCurrentTimezone());
     ImageView mImageView;
-    TextView mTextView;
+    TextView mTextView,mDays,mHours, mMin;
+    int hour = 22;
+    int minute = 33;
+    int second = 0;
+    int monthDay = 28;
+    int month = 7;
+    int year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +69,14 @@ public class MainActivity extends AppCompatActivity
 
         /*newly added* */
 
-        //vengal made photo display in navbar section
-        SharedPreferences sharedPreferences=getSharedPreferences("UserPrefs",MODE_PRIVATE);
-        String s=sharedPreferences.getString("Profile",null);
-        String login=sharedPreferences.getString("USERNAME",null);
+        mDays = (TextView)findViewById(R.id.days);
+        mHours = (TextView)findViewById(R.id.hours);
+        mMin = (TextView)findViewById(R.id.mins);
 
-//        mImageView=(ImageView)findViewById(R.id.profile_imag_main);
-//
-//        if(s!=null&&s!="a")
-//        Picasso.with(MainActivity.this).load(Uri.parse(s)).fit().into(mImageView);
-//        mTextView=(TextView)findViewById(R.id.user_login_detail) ;
-        //mTextView.setText(login);
-        // Create an auto-managed GoogleApiClient with access to App Invites.
+        Conf_time.setToNow();
+        year = Conf_time.year;
+        countdown_init();
+
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(AppInvite.API)
                 .enableAutoManage(this, this)
@@ -143,6 +148,44 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header=navigationView.getHeaderView(0);
+        mTextView = (TextView)header.findViewById(R.id.email_main);
+        mImageView = (ImageView) header.findViewById(R.id.profile_image_main);
+    }
+
+    private void countdown_init() {
+
+        Conf_time.set(second, minute, hour, monthDay, month, year);
+        Conf_time.normalize(true);
+        long confMillis = Conf_time.toMillis(true);
+
+        Time nowTime = new Time(Time.getCurrentTimezone());
+        nowTime.setToNow();
+        nowTime.normalize(true);
+        long nowMillis = nowTime.toMillis(true);
+
+        long milliDiff = confMillis - nowMillis;
+
+        new CountDownTimer(milliDiff, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+                mDays.setText(String.valueOf((int) ((millisUntilFinished / 1000) / 86400)));
+                mHours.setText(String.valueOf((int) (((millisUntilFinished / 1000) -
+                        (Integer.parseInt(String.valueOf(mDays.getText())) * 86400)) / 3600)));
+                mMin.setText(String.valueOf((int) (((millisUntilFinished / 1000) -
+                        ((Integer.parseInt(String.valueOf(mDays.getText())) * 86400) +
+                                (Integer.parseInt(String.valueOf(mHours.getText())) * 3600))) / 60)));
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+
     }
 
     @Override
@@ -203,6 +246,14 @@ public class MainActivity extends AppCompatActivity
                 onInviteClicked();
         } else if (id == R.id.nav_send) {
 
+            Intent Email = new Intent(Intent.ACTION_SEND);
+            Email.setType("text/email");
+            Email.putExtra(Intent.EXTRA_EMAIL, new String[] { "insignia.alphaz@gmail.com" });
+            Email.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+            Email.putExtra(Intent.EXTRA_TEXT, "Dear ...," + "");
+            startActivity(Intent.createChooser(Email, "Send Feedback:"));
+            return true;
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -245,6 +296,9 @@ public class MainActivity extends AppCompatActivity
             finish();
             return;
         }
+        mTextView.setText(mFirebaseUser.getDisplayName());
+        if (mFirebaseUser.getPhotoUrl() != null)
+        Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(mImageView);
     }
 
 

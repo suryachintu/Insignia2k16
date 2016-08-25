@@ -191,7 +191,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_logout">Logout</string>
-    <string name="venue"><u>Venue :</u></string>
+    <string name="venue">Venue :</string>
 
 
 </resources>
