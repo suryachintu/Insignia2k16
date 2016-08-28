@@ -1,5 +1,6 @@
 package com.example.surya.insignia2k16.events_main;
 
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.example.surya.insignia2k16.R;
 
 public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHolder> {
 
+
+    Typeface custom_font;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mList_item_text;
@@ -38,7 +41,6 @@ public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHo
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.events_recyclerview, parent, false);
-
         return new MyViewHolder(itemView);
     }
 

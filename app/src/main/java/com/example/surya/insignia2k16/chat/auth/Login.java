@@ -3,10 +3,9 @@ package com.example.surya.insignia2k16.chat.auth;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -50,15 +49,11 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        TextView login_view = (TextView)findViewById(R.id.login_txt);
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/bell_mt.ttf");
+        login_view.setTypeface(typeface);
 
         mEmailField = (EditText)findViewById(R.id.login_email);
         mPasswordField = (EditText)findViewById(R.id.login_password);
@@ -99,10 +94,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                         Log.e(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail", task.getException());
-                            Toast.makeText(Login.this, "Authentication failed.",
+                            Toast.makeText(Login.this, "Authentication failed " + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(Login.this, "Successful login", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Successful login", Toast.LENGTH_LONG).show();
                             navigateToMain();
                         }
                     }

@@ -103,13 +103,13 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
 
                 SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
 
-                if (!model.getPhotoUrl().equals("a")){
-                    Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_out);
-                    Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_in);
-                }else{
-                    viewHolder.mImageView_in.setBackgroundResource(R.drawable.ic_person_black_36dp);
-                    viewHolder.mImageView_out.setBackgroundResource(R.drawable.ic_person_black_36dp);
-                }
+//                if (!model.getPhotoUrl().equals("a")){
+//                    Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_out);
+//                    Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_in);
+//                }else{
+//                    viewHolder.mImageView_in.setBackgroundResource(R.drawable.ic_person_black_36dp);
+//                    viewHolder.mImageView_out.setBackgroundResource(R.drawable.ic_person_black_36dp);
+//                }
 
                 if (Constants.USERNAME.equals(model.getUser())) {
                     viewHolder.mLinearLayout_out.setVisibility(View.VISIBLE);
@@ -119,6 +119,12 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
                     viewHolder.user.setText(model.getUser());
                     viewHolder.mUser_message.setText(model.getMessage());
                     viewHolder.mTimestamp.setText(sdf.format(new Date(model.getTimestampSentLong())));
+                    if (!model.getPhotoUrl().equals("a"))
+                        Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_out);
+                    else
+                        Picasso.with(GlobalChat.this).load(R.drawable.ic_person_black_36dp)
+                                .fit().into(viewHolder.mImageView_out);
+
                 }else {
                     viewHolder.mLinearLayout_in.setVisibility(View.VISIBLE);
                     viewHolder.mLinearLayout_out.setVisibility(View.INVISIBLE);
@@ -127,6 +133,12 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
                     viewHolder.user_in.setText(model.getUser());
                     viewHolder.mUser_message_in.setText(model.getMessage());
                     viewHolder.mTimestamp_in.setText(sdf.format(new Date(model.getTimestampSentLong())));
+                    if (!model.getPhotoUrl().equals("a"))
+                        Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_in);
+                    else
+                        Picasso.with(GlobalChat.this).load(R.drawable.ic_person_black_36dp)
+                                .fit().into(viewHolder.mImageView_in);
+
                 }
 
             }
@@ -193,7 +205,7 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
 
     private void sendMessage() {
 
-        String message = mEditText.getText().toString();
+        String message = mEditText.getText().toString().replaceAll("\\\\n","");
 
         if (!message.trim().equals("")){
             mEditText.setText("");

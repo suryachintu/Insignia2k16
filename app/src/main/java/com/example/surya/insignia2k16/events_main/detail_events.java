@@ -37,6 +37,8 @@ public class detail_events extends AppCompatActivity {
         toolbarLayout.setCollapsedTitleTextAppearance(R.style.collapsedappbar);
         toolbarLayout.setExpandedTitleTextAppearance(R.style.expandedappbar);
 
+        //fonts
+
         mDetail_description = (TextView)findViewById(R.id.details_description_text);
         mRegister_button = (Button)findViewById(R.id.detail_register_button);
         mImageView = (ImageView)findViewById(R.id.collapsed_image);
