@@ -187,7 +187,6 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
             mFirebaseAuth.signOut();
             if (Constants.FLAG){
@@ -209,7 +208,8 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
 
         if (!message.trim().equals("")){
             mEditText.setText("");
-            Messages messages = new Messages(Constants.USERNAME,message,photoUrl);
+            Messages messages = new Messages(Constants.USERNAME,message.replace("\n","").replace("\r",""),photoUrl);
+            Toast.makeText(GlobalChat.this, messages.getMessage(), Toast.LENGTH_SHORT).show();
             mReference.child(Constants.MESSAGES).push().setValue(messages);
         }else {
             mEditText.setError("Empty message");
