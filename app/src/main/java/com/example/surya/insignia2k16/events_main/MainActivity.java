@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,7 +48,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener ,GoogleApiClient.OnConnectionFailedListener {
 
-
     public static final int REQUEST_INVITE=0;
     FirebaseAuth mFirebaseAuth;
     DatabaseReference mReference;
@@ -57,17 +55,8 @@ public class MainActivity extends AppCompatActivity
     FirebaseRemoteConfig mRemoteConfig;
     RecyclerView mRecyclerView;
     GoogleApiClient mGoogleApiClient;
-    Time Conf_time = new Time(Time.getCurrentTimezone());
     ImageView mImageView;
-
-    TextView mTextView,mDays,mHours, mMin;
-    private TextView mEvent_venue;
-//    int hour = 22;
-//    int minute = 33;
-//    int second = 0;
-//    int monthDay = 28;
-//    int month = 7;
-//    int year;
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +64,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         // Initialize Firebase Remote Config.
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
 
@@ -95,17 +83,7 @@ public class MainActivity extends AppCompatActivity
         mRemoteConfig.setDefaults(defaultConfigMap);
 
         // Fetch remote config.
-                fetchConfig();
-
-        /*newly added* */
-
-//        mDays = (TextView)findViewById(R.id.days);
-//        mHours = (TextView)findViewById(R.id.hours);
-//        mMin = (TextView)findViewById(R.id.mins);
-//
-//        Conf_time.setToNow();
-//        year = Conf_time.year;
-//        countdown_init();
+        fetchConfig();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(AppInvite.API)
@@ -139,6 +117,7 @@ public class MainActivity extends AppCompatActivity
 
         //recycler view
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 
@@ -186,7 +165,7 @@ public class MainActivity extends AppCompatActivity
 
     private void fetchConfig() {
 
-        // Fetch the config to determine the allowed length of messages.
+             // Fetch the config to determine the allowed length of messages.
             long cacheExpiration = 3600; // 1 hour in seconds
             // If developer mode is enabled reduce cacheExpiration to 0 so that
             // each fetch goes to the server. This should not be used in release
@@ -222,40 +201,6 @@ public class MainActivity extends AppCompatActivity
 
          Constants.event_name = mRemoteConfig.getString("event_venue");
 
-
-    }
-
-    private void countdown_init() {
-
-       /* Conf_time.set(second, minute, hour, monthDay, month, year);
-        Conf_time.normalize(true);
-        long confMillis = Conf_time.toMillis(true);
-
-        Time nowTime = new Time(Time.getCurrentTimezone());
-        nowTime.setToNow();
-        nowTime.normalize(true);
-        long nowMillis = nowTime.toMillis(true);
-
-        long milliDiff = confMillis - nowMillis;
-
-        new CountDownTimer(milliDiff, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-                mDays.setText(String.valueOf((int) ((millisUntilFinished / 1000) / 86400)));
-                mHours.setText(String.valueOf((int) (((millisUntilFinished / 1000) -
-                        (Integer.parseInt(String.valueOf(mDays.getText())) * 86400)) / 3600)));
-                mMin.setText(String.valueOf((int) (((millisUntilFinished / 1000) -
-                        ((Integer.parseInt(String.valueOf(mDays.getText())) * 86400) +
-                                (Integer.parseInt(String.valueOf(mHours.getText())) * 3600))) / 60)));
-
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        }.start();*/
 
     }
 
