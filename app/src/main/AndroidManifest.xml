@@ -10,6 +10,8 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name="android.support.multidex.MultiDexApplication"
@@ -26,6 +28,13 @@
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="insignia://" android:host="open"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
         <activity
@@ -117,6 +126,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
         </activity>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_fisblHeCz1uxMc1drv8Ygicbtwe1n4Rf" />
+        <receiver android:name="io.branch.referral.InstallListener" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

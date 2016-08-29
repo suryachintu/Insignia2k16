@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -36,7 +37,8 @@ public class Instafeed extends AppCompatActivity {
     HttpURLConnection connection;
     ArrayList<String> list;
     ListView listView;
-
+    SwipeRefreshLayout swipeRefreshLayout;
+    CustomAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +47,18 @@ public class Instafeed extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         list=new ArrayList<String>();
-        MyFetchTask myFetchTask=new MyFetchTask();
+        final MyFetchTask myFetchTask=new MyFetchTask();
         myFetchTask.execute();
-
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.refresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                adapter.clear();
+                MyFetchTask task=new MyFetchTask();
+                task.execute();
+            }
+        });
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -58,6 +69,7 @@ public class Instafeed extends AppCompatActivity {
 //        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
     class CustomAdapter extends ArrayAdapter {
 
         Context context;
@@ -90,6 +102,7 @@ public class Instafeed extends AppCompatActivity {
                     .with(this.context)
                     .load(Uri.parse(list.get(position)))
                     .fit() // will explain later
+                    .placeholder(R.drawable.progree_animation)
                     .into((ImageView) convertView.findViewById(R.id.img3));
 
             return convertView;
@@ -103,9 +116,10 @@ public class Instafeed extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            adapter=new CustomAdapter(Instafeed.this,R.layout.card_row,list);
             listView=(ListView)findViewById(R.id.listView);
-            CustomAdapter adapter=new CustomAdapter(Instafeed.this,R.layout.card_row,list);
             listView.setAdapter(adapter);
+            swipeRefreshLayout.setRefreshing(false);
         }
 
         @Override
