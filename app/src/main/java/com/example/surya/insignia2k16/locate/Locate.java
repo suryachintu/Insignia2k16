@@ -119,15 +119,14 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-
         Location location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
         if (location != null)
             f = new LatLng(location.getLatitude(), location.getLongitude());
-        Log.d("xxxxxxx", "onConnected");
+        Log.d("xxxxxxxf"+f, "onConnected");
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(1000);
-
+        Log.d("xxxxxxxxx","out");
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             //    ActivityCompat#requestPermissions
@@ -143,13 +142,15 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
                     this,
                     new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION},
                     0);
-            LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, Locate.this);
+            //LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, Locate.this);
 
 
         }
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, Locate.this);
 
-        LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, Locate.this);
-        Log.d("xxxxxxxxx","out");
+        }
+
     }
 
     @Override
@@ -231,6 +232,9 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
         @SuppressWarnings("unused")
         @Override
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
+            mMap.clear();
+            LatLng col = new LatLng(28.8428, 77.1050);
+            mMap.addMarker(new MarkerOptions().position(col).title("National Institute of Technology"));
             ArrayList<LatLng> points = null;
             PolylineOptions lineOptions = null;
             MarkerOptions markerOptions = new MarkerOptions();
@@ -286,6 +290,7 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
 //            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(17.3850, 78.4867)));
 //            CameraUpdate zoom = CameraUpdateFactory.zoomTo(11);
 //            mMap.animateCamera(zoom);
+
 
                 CameraPosition cp=CameraPosition.builder()
                         .target(f)
@@ -386,8 +391,10 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
             }else{
                 if(des==null)
                     Toast.makeText(Locate.this," des not set properly",Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(Locate.this,"Check your  Internet Connection Or turn on GPS",Toast.LENGTH_LONG).show();
+                else{
+                    Toast.makeText(Locate.this,"Check your  Internet Connection Or turn on GPS"+f+" "+des,Toast.LENGTH_LONG).show();
+                }
+
             }
 
         }

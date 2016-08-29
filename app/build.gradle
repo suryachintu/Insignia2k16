@@ -27,8 +27,12 @@ dependencies {
 
     //firebase sdk
     //firebase ui
-    
 
+    //swipe dependency
+    compile 'com.android.support:support-v4:23.1.1'
+
+    //branch io dependencies
+    compile 'io.branch.sdk.android:library:2.+'
 
     compile 'com.android.support:appcompat-v7:24.0.0-beta1'
     compile 'com.android.support:design:24.0.0-beta1'

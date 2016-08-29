@@ -1,9 +1,11 @@
 package com.example.surya.insignia2k16.events_main;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -43,8 +45,13 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import io.branch.referral.Branch;
+import io.branch.referral.BranchError;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener ,GoogleApiClient.OnConnectionFailedListener {
@@ -84,7 +91,25 @@ public class MainActivity extends AppCompatActivity
                             new FirebaseRemoteConfigSettings.Builder()
                                 .setDeveloperModeEnabled(true)
                                 .build();
+        //requestion runtime permission
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    0);
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    0);
+            //LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, Locate.this);
 
+
+        }
         // Define default config values. Defaults are used when fetched config values are not
         // available. Eg: if an error occurred fetching values from the server.
         Map<String, Object> defaultConfigMap = new HashMap<>();
@@ -106,7 +131,8 @@ public class MainActivity extends AppCompatActivity
 //        Conf_time.setToNow();
 //        year = Conf_time.year;
 //        countdown_init();
-
+        // Automatic session tracking
+        //Branch.getAutoInstance(this);
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(AppInvite.API)
                 .enableAutoManage(this, this)
@@ -364,6 +390,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+
         if (mFirebaseUser == null){
             Toast.makeText(MainActivity.this, "null", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainActivity.this,Login.class));
@@ -376,9 +403,26 @@ public class MainActivity extends AppCompatActivity
         mTextView.setText(mFirebaseUser.getEmail());
         if (mFirebaseUser.getPhotoUrl() != null)
         Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(mImageView);
+
+        Branch branch = Branch.getInstance(getApplicationContext());
+
+        branch.initSession(new Branch.BranchReferralInitListener(){
+            @Override
+            public void onInitFinished(JSONObject referringParams, BranchError error) {
+                if (error == null) {
+                    // params are the deep linked params associated with the link that the user clicked -> was re-directed to this app
+                    // params will be empty if no data found
+                    // ... insert custom logic here ...
+                } else {
+                    Log.i("MyApp", error.getMessage());
+                }
+            }
+        }, this.getIntent().getData(), this);
     }
 
-
+    public void onNewIntent(Intent intent) {
+        this.setIntent(intent);
+    }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
