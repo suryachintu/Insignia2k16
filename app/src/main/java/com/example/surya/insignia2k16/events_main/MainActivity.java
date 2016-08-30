@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.surya.insignia2k16.Constants;
 import com.example.surya.insignia2k16.R;
+import com.example.surya.insignia2k16.about.AboutInsignia;
 import com.example.surya.insignia2k16.chat.GlobalChat;
 import com.example.surya.insignia2k16.chat.auth.Login;
 import com.example.surya.insignia2k16.instafeed.Instafeed;
@@ -255,7 +256,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_about) {
 
-//            startActivity(new Intent(MainActivity.this, AboutInsignia.class));
+            startActivity(new Intent(MainActivity.this, AboutInsignia.class));
 
         } else if (id == R.id.nav_locate) {
 

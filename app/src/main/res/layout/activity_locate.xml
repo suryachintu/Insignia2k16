@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:clickable="true"
-        android:src="@drawable/ic_navigation_black_24dp"
+        android:src="@drawable/ic_navigation_white_24dp"
         app:layout_anchor="@id/map_a"
         app:layout_anchorGravity="bottom|right|end"/>
 

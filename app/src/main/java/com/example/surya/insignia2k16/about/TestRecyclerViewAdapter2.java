@@ -15,7 +15,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.*;
+import com.example.surya.insignia2k16.R;
+
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ import java.util.List;
  */
 public class TestRecyclerViewAdapter2 extends RecyclerView.Adapter<TestRecyclerViewAdapter2.PersonViewHolder> {
 
-    List<java.lang.Object> contents;
+    List<Object> contents;
 
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
@@ -33,7 +34,7 @@ public class TestRecyclerViewAdapter2 extends RecyclerView.Adapter<TestRecyclerV
     TextView personAge;
     ImageView personPhoto;
 
-    public TestRecyclerViewAdapter2(List<java.lang.Object> contents) {
+    public TestRecyclerViewAdapter2(List<Object> contents) {
         this.contents = contents;
     }
 

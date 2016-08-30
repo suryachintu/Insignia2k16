@@ -13,7 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.*;
+import com.example.surya.insignia2k16.R;
+
 import java.util.List;
 
 /**
@@ -21,14 +22,14 @@ import java.util.List;
  */
 public class TestRecyclerViewAdapter3 extends RecyclerView.Adapter<TestRecyclerViewAdapter3.PersonViewHolder> {
 
-    List<java.lang.Object> contents;
+    List<Object> contents;
 
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
     int lastPosition=-1;
     Context context1;
 
-    public TestRecyclerViewAdapter3(List<java.lang.Object> contents) {
+    public TestRecyclerViewAdapter3(List<Object> contents) {
         this.contents = contents;
     }
 

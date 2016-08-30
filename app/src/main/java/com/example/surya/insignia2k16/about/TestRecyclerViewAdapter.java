@@ -15,7 +15,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.*;
+import com.example.surya.insignia2k16.R;
+
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -25,7 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerViewAdapter.PersonViewHolder> {
 
-   static List<java.lang.Object> contents;
+   static List<Object> contents;
 
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
@@ -35,7 +36,7 @@ Context context1;
     TextView personAge;
     ImageView personPhoto;
 
-    public TestRecyclerViewAdapter(List<java.lang.Object> contents) {
+    public TestRecyclerViewAdapter(List<Object> contents) {
         this.contents=contents;
 
 

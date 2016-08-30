@@ -43,7 +43,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Locate extends FragmentActivity implements OnMapReadyCallback ,GoogleApiClient.ConnectionCallbacks,LocationListener, GoogleApiClient.OnConnectionFailedListener {
+public class Locate extends FragmentActivity implements OnMapReadyCallback ,
+        GoogleApiClient.ConnectionCallbacks,LocationListener, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient googleApiClient;
     private GoogleMap mMap;
@@ -81,8 +82,6 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
                 Log.d("xxxxxxxxx","entered");
                 Fetch fetch=new Fetch();
                 fetch.execute();
-                Snackbar.make(view, "Getting your route...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
 
@@ -244,7 +243,7 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
 
             if(result!=null){
                 if(result.size()<1){
-                    Toast.makeText(getBaseContext(), "No Points", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "You are in NIT Delhi Campus ", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -301,7 +300,8 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
                 mMap.addMarker(new MarkerOptions().position(f).title("Your Location"));
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cp),10000,null);
             }else{
-                Toast.makeText(Locate.this,"Check your Internet or GPS connection",Toast.LENGTH_LONG).show();;
+                Snackbar.make(findViewById(android.R.id.content), "Check your  Internet Connection Or turn on GPS", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
 
         }
@@ -379,22 +379,22 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,Goog
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             mMap.addMarker(new MarkerOptions().position(des).title("National Institute of Technology,Delhi"));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(des));
-//            CameraUpdate zoom = CameraUpdateFactory.zoomTo(11);
-//            mMap.animateCamera(zoom);
+            //            mMap.moveCamera(CameraUpdateFactory.newLatLng(des));
+            //            CameraUpdate zoom = CameraUpdateFactory.zoomTo(11);
+            //            mMap.animateCamera(zoom);
             if(des!=null&&f!=null){
                 String url = getDirectionsUrl(f, des);
                 Log.d("xxxxxx",url);
+
+                Snackbar.make(findViewById(android.R.id.content), "Getting your route...", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 DownloadTask downloadTask = new DownloadTask();
-// Start downloading json data from Google Directions API
+                // Start downloading json data from Google Directions API
                 downloadTask.execute(url);
             }else{
-                if(des==null)
-                    Toast.makeText(Locate.this," des not set properly",Toast.LENGTH_LONG).show();
-                else{
-                    Toast.makeText(Locate.this,"Check your  Internet Connection Or turn on GPS"+f+" "+des,Toast.LENGTH_LONG).show();
-                }
 
+                Snackbar.make(findViewById(android.R.id.content), "Check your  Internet Connection Or turn on GPS", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
 
         }

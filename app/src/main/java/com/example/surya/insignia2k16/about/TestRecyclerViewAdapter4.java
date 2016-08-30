@@ -10,6 +10,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.surya.insignia2k16.R;
+
 import java.util.List;
 
 /**
