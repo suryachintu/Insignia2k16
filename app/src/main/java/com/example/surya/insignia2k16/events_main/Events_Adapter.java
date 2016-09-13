@@ -18,8 +18,6 @@ import com.example.surya.insignia2k16.R;
 public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHolder> {
 
 
-    Typeface custom_font;
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mList_item_text;
         public TextView mList_item_venue;

@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_informal"
+            android:icon="@drawable/ic_location_on_black_24dp"
+            android:title="Informal Events"/>
         <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/ic_chat_black_24dp"

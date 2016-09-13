@@ -274,6 +274,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(Intent.createChooser(Email, "Send Feedback:"));
             return true;
 
+        }else if (id == R.id.nav_informal){
+
+            startActivity(new Intent(MainActivity.this,Informal.class));
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

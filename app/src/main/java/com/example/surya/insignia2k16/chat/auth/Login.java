@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView login_view = (TextView)findViewById(R.id.login_txt);
         Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/bell_mt.ttf");

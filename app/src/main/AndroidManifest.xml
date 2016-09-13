@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.example.surya.insignia2k16"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.surya.insignia2k16">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="android.support.multidex.MultiDexApplication"
@@ -25,19 +25,19 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <data
                     android:host="open"
-                    android:scheme="insignia://"/>
+                    android:scheme="insignia://" />
 
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
         <activity
@@ -47,7 +47,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
         <activity
             android:name=".chat.auth.SignUp"
@@ -56,7 +56,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".chat.auth.Login"/>
+                android:value=".chat.auth.Login" />
         </activity>
         <activity
             android:name=".chat.GlobalChat"
@@ -65,7 +65,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
         <activity
             android:name=".instafeed.Instafeed"
@@ -74,7 +74,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -86,7 +86,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key"/>
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name=".registration.Registration"
@@ -95,7 +95,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
         <activity
             android:name=".events_main.detail_events"
@@ -104,21 +104,21 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
 
         <service
             android:name=".chat.messaging.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
             android:name=".chat.messaging.MyFirebaseInstanceIDService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
@@ -127,18 +127,18 @@
             android:label="@string/title_activity_locate">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
 
         <meta-data
             android:name="io.branch.sdk.BranchKey"
-            android:value="key_live_fisblHeCz1uxMc1drv8Ygicbtwe1n4Rf"/>
+            android:value="key_live_fisblHeCz1uxMc1drv8Ygicbtwe1n4Rf" />
 
         <receiver
             android:name="io.branch.referral.InstallListener"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
 
@@ -149,7 +149,16 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.surya.insignia2k16.events_main.MainActivity"/>
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".events_main.Informal"
+            android:label="@string/title_activity_informal"
+            android:parentActivityName=".events_main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
     </application>
 

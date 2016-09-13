@@ -196,6 +196,7 @@
     <string name="address">National Institute of Technology Delhi\n Institute of Applied Manpower Research (IAMR Campus)\n A-7, Institutional Area\n Near Satyawadi Raja Harish Chandra Hospital,\n Narela, Delhi – 110040</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_about_fest">about_fest</string>
+    <string name="title_activity_informal">Informal Events</string>
 
 
 </resources>
