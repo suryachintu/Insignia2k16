@@ -152,6 +152,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
+//        TODO keep 0 to remove error TBD
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
