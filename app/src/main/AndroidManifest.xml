@@ -160,6 +160,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
+        <activity
+            android:name=".about_insignia.About"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".events_main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

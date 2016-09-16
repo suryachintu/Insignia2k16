@@ -73,6 +73,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         dialog.setContentView(R.layout.authentication_dialog);
         dialog.setTitle("Loading...");
         dialog.show();
+        dialog.setCancelable(false);
 
         mEmail = mEmailField.getText().toString();
         mPassword = mPasswordField.getText().toString();
@@ -153,7 +154,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .requestEmail()
                 .build();
 
-//        TODO keep 0 to remove error TBD
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
@@ -183,6 +183,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.authentication_dialog);
         dialog.setTitle("Loading...");
+        dialog.setCancelable(false);
         dialog.show();
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
@@ -219,5 +220,21 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mGoogleApiClient != null)
+            mGoogleApiClient.connect();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.stopAutoManage(this);
+            mGoogleApiClient.disconnect();
+        }
     }
 }

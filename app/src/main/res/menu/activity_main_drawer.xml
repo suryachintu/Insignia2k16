@@ -5,7 +5,7 @@
 
         <item
             android:id="@+id/nav_informal"
-            android:icon="@drawable/ic_location_on_black_24dp"
+            android:icon="@drawable/ic_event_black_24dp"
             android:title="Informal Events"/>
         <item
             android:id="@+id/nav_chat"

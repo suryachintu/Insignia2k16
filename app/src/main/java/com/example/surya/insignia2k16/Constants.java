@@ -18,6 +18,8 @@ public class Constants {
     public static Integer[] mEvents_posters = {R.drawable.poster1,R.drawable.poster2,R.drawable.poster3,R.drawable.a,
             R.drawable.poster4,R.drawable.poster5,R.drawable.poster6,R.drawable.poster7,R.drawable.a};
 
+    public static String[] mEvent_cordinators = {"Shankar,Vengal,Pavan"};
+
     public static Integer[] mEvents_description = {
                                     R.string.HEX_A_HEX,R.string.Les_Quizzerables,R.string.TUSSLE_OF_TONGUES,
                                     R.string.NITD_MUN,R.string.WORDSMITHS_WONDERLAND,R.string.FOR_BETTER_FOR_VERSE,

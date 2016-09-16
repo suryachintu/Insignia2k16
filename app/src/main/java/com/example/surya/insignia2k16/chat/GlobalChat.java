@@ -208,7 +208,12 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
 
         if (!message.trim().equals("")){
             mEditText.setText("");
-            Messages messages = new Messages(Constants.USERNAME,message.replace("\n","").replace("\r",""),photoUrl);
+            Messages messages;
+            if (mFirebaseUser.getDisplayName() != null)
+            messages = new Messages(mFirebaseUser.getDisplayName(),message.replace("\n","").replace("\r",""),photoUrl);
+            else
+                messages = new Messages(mFirebaseUser.getEmail(),message.replace("\n","").replace("\r",""),photoUrl);
+
             Toast.makeText(GlobalChat.this, messages.getMessage(), Toast.LENGTH_SHORT).show();
             mReference.child(Constants.MESSAGES).push().setValue(messages);
         }else {
