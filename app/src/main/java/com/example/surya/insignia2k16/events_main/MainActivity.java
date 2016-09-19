@@ -33,6 +33,7 @@ import com.google.android.gms.appinvite.AppInviteReferral;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.games.event.Events;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +44,7 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -95,25 +97,7 @@ public class MainActivity extends AppCompatActivity
         // Requires that an Activity is registered in AndroidManifest.xml to handle
         // deep-link URLs.
         boolean autoLaunchDeepLink = true;
-        AppInvite.AppInviteApi.getInvitation(mGoogleApiClient, this, autoLaunchDeepLink)
-                .setResultCallback(
-                        new ResultCallback<AppInviteInvitationResult>() {
-                            @Override
-                            public void onResult(AppInviteInvitationResult result) {
-                                Log.d("vengal", "getInvitation:onResult:" + result.getStatus());
-                                if (result.getStatus().isSuccess()) {
-                                    // Extract information from the intent
-                                    Intent intent = result.getInvitationIntent();
-                                    String deepLink = AppInviteReferral.getDeepLink(intent);
-                                    String invitationId = AppInviteReferral.getInvitationId(intent);
-
-                                    // Because autoLaunchDeepLink = true we don't have to do anything
-                                    // here, but we could set that to false and manually choose
-                                    // an Activity to launch to handle the deep link here.
-                                    // ...
-                                }
-                            }
-                        });
+        appInvite(autoLaunchDeepLink);
 
 
         //recycler view
@@ -164,6 +148,30 @@ public class MainActivity extends AppCompatActivity
         mImageView = (ImageView) header.findViewById(R.id.profile_image_main);
     }
 
+    //App Invites
+    private void appInvite(boolean autoLaunchDeepLink) {
+        AppInvite.AppInviteApi.getInvitation(mGoogleApiClient, this, autoLaunchDeepLink)
+                .setResultCallback(
+                        new ResultCallback<AppInviteInvitationResult>() {
+                            @Override
+                            public void onResult(AppInviteInvitationResult result) {
+                                Log.d("vengal", "getInvitation:onResult:" + result.getStatus());
+                                if (result.getStatus().isSuccess()) {
+                                    // Extract information from the intent
+                                    Intent intent = result.getInvitationIntent();
+                                    String deepLink = AppInviteReferral.getDeepLink(intent);
+                                    String invitationId = AppInviteReferral.getInvitationId(intent);
+
+                                    // Because autoLaunchDeepLink = true we don't have to do anything
+                                    // here, but we could set that to false and manually choose
+                                    // an Activity to launch to handle the deep link here.
+                                    // ...
+                                }
+                            }
+                        });
+    }
+
+    //Remote config
     private void fetchConfig() {
 
              // Fetch the config to determine the allowed length of messages.

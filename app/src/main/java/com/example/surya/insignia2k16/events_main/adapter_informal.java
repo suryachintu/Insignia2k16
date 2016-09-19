@@ -31,7 +31,7 @@ public class Adapter_informal extends RecyclerView.Adapter<Adapter_informal.MyVi
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         holder.mTextView.setText(Constants.mEvents_names[position]);
-        holder.mImageView.setImageResource(Constants.mEvents_posters[position]);
+//        holder.mImageView.setImageResource(Constants.mEvents_posters[position]);
 
     }
 
@@ -49,7 +49,7 @@ public class Adapter_informal extends RecyclerView.Adapter<Adapter_informal.MyVi
             super(itemView);
 
             mTextView = (TextView)itemView.findViewById(R.id.informal_text);
-            mImageView = (ImageView) itemView.findViewById(R.id.informal_imageView);
+//            mImageView = (ImageView) itemView.findViewById(R.id.informal_imageView);
 
         }
     }

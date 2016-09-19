@@ -9,6 +9,7 @@ public class Constants {
     public static String USERNAME = "USERNAME";
     public static String EMAIL = "EMAIL";
     public static boolean FLAG = false;
+
     public static String[] mEvents_names = {"HEX A HEX","Les Quizzerables",
                                                 "TUSSLE OF TONGUES",
                                                   "NITD MUN","WORDSMITH’S WONDERLAND",
@@ -26,9 +27,16 @@ public class Constants {
                                     R.string.BLIND_FOLD,R.string.MURRAL_PAINTING,R.string.COMES_AROUND_GOES_AROUND,
                                 };
 
+    public static final boolean[] FLAGARRAY ={false,false,false,false,false,false,false,false,false} ;
     //tree roots
     public static String event_name = "dummy";
     public static final String MESSAGES = "messages";
 
 
+    public static String[] mEvent_time = {"5th September 2016","5th September 2016","5th September 2016",
+                                            "5th September 2016","5th September 2016","5th September 2016",
+                                                 "5th September 2016","5th September 2016","5th September 2016"};
+
+
+    public static String[] mVenues ={"NIT DELHI","NIT DELHI","NIT DELHI","NIT DELHI","NIT DELHI","NIT DELHI","NIT DELHI","NIT DELHI","NIT DELHI"};
 }

@@ -2,20 +2,8 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="50dp"
     android:elevation="4dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/informal_imageView"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:src="@drawable/poster1"
-            android:scaleType="fitXY"/>
 
         <TextView
             android:id="@+id/informal_text"
@@ -23,8 +11,7 @@
             android:layout_height="40dp"
             android:text="Event name"
             android:textAlignment="center"
-            android:layout_margin="5dp"/>
-
-    </LinearLayout>
+            android:layout_margin="5dp"
+            android:gravity="center"/>
 
 </android.support.v7.widget.CardView>
