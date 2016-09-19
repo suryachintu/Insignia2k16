@@ -5,9 +5,7 @@ package com.example.surya.insignia2k16;
  */
 public class Constants {
     public static final String TIMESTAMP = "timestamp";
-    public static final String USERS_DETAILS = "users details";
     public static String USERNAME = "USERNAME";
-    public static String EMAIL = "EMAIL";
     public static boolean FLAG = false;
 
     public static String[] mEvents_names = {"HEX A HEX","Les Quizzerables",

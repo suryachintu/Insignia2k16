@@ -3,7 +3,9 @@ package com.example.surya.insignia2k16.events_main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity
     GoogleApiClient mGoogleApiClient;
     ImageView mImageView;
     private TextView mTextView;
+    private Events_Adapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         // Initialize Firebase Remote Config.
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
 
@@ -80,6 +84,16 @@ public class MainActivity extends AppCompatActivity
         // available. Eg: if an error occurred fetching values from the server.
         Map<String, Object> defaultConfigMap = new HashMap<>();
         defaultConfigMap.put("event_venue", "To be declared");
+        defaultConfigMap.put("event1", "To be declared");
+        defaultConfigMap.put("event2", "To be declared");
+        defaultConfigMap.put("event3", "To be declared");
+        defaultConfigMap.put("event4", "To be declared");
+        defaultConfigMap.put("event5", "To be declared");
+        defaultConfigMap.put("event6", "To be declared");
+        defaultConfigMap.put("event7", "To be declared");
+        defaultConfigMap.put("event8", "To be declared");
+        defaultConfigMap.put("event9", "To be declared");
+        defaultConfigMap.put("event10", "To be declared");
 
         // Apply config settings and default values.
         mRemoteConfig.setConfigSettings(firebaseRemoteConfigSettings);
@@ -108,7 +122,7 @@ public class MainActivity extends AppCompatActivity
 
         mRecyclerView.setLayoutManager(layoutManager);
 
-        Events_Adapter myAdapter = new Events_Adapter();
+        myAdapter = new Events_Adapter();
 
         mRecyclerView.setAdapter(myAdapter);
 
@@ -209,8 +223,17 @@ public class MainActivity extends AppCompatActivity
     private void applyRetrievedLengthLimit() {
 
          Constants.event_name = mRemoteConfig.getString("event_venue");
-
-
+         Constants.FLAGARRAY[0] = mRemoteConfig.getBoolean("event1");
+         Constants.FLAGARRAY[1] = mRemoteConfig.getBoolean("event2");
+         Constants.FLAGARRAY[2] = mRemoteConfig.getBoolean("event3");
+         Constants.FLAGARRAY[3] = mRemoteConfig.getBoolean("event4");
+         Constants.FLAGARRAY[4] = mRemoteConfig.getBoolean("event5");
+         Constants.FLAGARRAY[5] = mRemoteConfig.getBoolean("event6");
+         Constants.FLAGARRAY[6] = mRemoteConfig.getBoolean("event7");
+         Constants.FLAGARRAY[7] = mRemoteConfig.getBoolean("event8");
+         Constants.FLAGARRAY[8] = mRemoteConfig.getBoolean("event9");
+//         Constants.FLAGARRAY[9] = mRemoteConfig.getBoolean("event10");
+         myAdapter.notifyDataSetChanged();
     }
 
     @Override
