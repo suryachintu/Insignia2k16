@@ -24,6 +24,7 @@ public class detail_events extends AppCompatActivity {
     Button agree_btn,disagree_btn;
     TextView mEventName,mDetail_description;
     private ImageView mImageView;
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class detail_events extends AppCompatActivity {
             }
         });
 
-        final int position = getIntent().getIntExtra("p",0);
+        position = getIntent().getIntExtra("p",0);
         toolbarLayout.setTitle(Constants.mEvents_names[position]);
 
 
@@ -79,7 +80,9 @@ public class detail_events extends AppCompatActivity {
         agree_btn = (Button)dialog.findViewById(R.id.button_agree);
         disagree_btn = (Button)dialog.findViewById(R.id.button_disAgree);
         mEventName = (TextView)dialog.findViewById(R.id.dialog_event_title);
+        TextView ruleTxt = (TextView)dialog.findViewById(R.id.rule);
         mEventName.setText(Constants.mEvents_names[position]);
+        ruleTxt.setText(Constants.mEvents_rules[position]);
         //navigate to registration activity
         if (agree_btn!=null)
             agree_btn.setOnClickListener(new View.OnClickListener() {

@@ -42,7 +42,7 @@
         Here in the NITDMUN 2K16 we aim to achieve the very same thing.
         We want our participating delegates to learn about diplomacy between the nations,
         leadership while at the same time participate and showcase their debating skills as well as a plethora of other
-        skills which can define a nation’s delegate.
+        skills which can define a nation’s delegate.\n
         Our NITD MUN planned to simulate three committees of the United Nations namely the General Assembly,
         Security Council and Human Rights Council. True to the spirit of United Nations, here at NITD MUN,
         we strive to foster constructive forum for open discourse on various global issues.
@@ -50,13 +50,13 @@
     <string name="WORDSMITHS_WONDERLAND">
         This event will be held in multiple rounds. Four exciting and thrilling rounds have been prepared to engage
         the participants for the duration of the event. A team of two can take part in this event.
-        One of the members of the team will compete in the 1st round and the other will compete in the 2nd round.
-        1st Round: This is a simple game spanning a total time of two minutes;
+        One of the members of the team will compete in the 1st round and the other will compete in the 2nd round.\n
+        <b>1st Round: </b>This is a simple game spanning a total time of two minutes;
         the participants have to write down legitimate words from the English Language starting with a given alphabetical letter.
-        2nd Round: This round is a spelling bee, there will be ten words announced over the speakers and the participants have to spell them correctly.
-        3rd Round:  It will commence after duration of time. This shall follow a traditional pattern.
+        \n<b>2nd Round:</b> This round is a spelling bee, there will be ten words announced over the speakers and the participants have to spell them correctly.
+        \n<b>3rd Round:</b> It will commence after duration of time. This shall follow a traditional pattern.
         The qualified teams will be provided with a question paper with approx.
-        60 questions of varying difficulty. The top 4 teams will move on to the last round. 4th Round:
+        60 questions of varying difficulty. The top 4 teams will move on to the last round.\n<b>4th Round:</b>
         It is a rapid fire round where the 4 teams will be divided into groups of 2.
         Group A and B will compete amongst themselves. The winning teams from group ‘A’ and group ‘B’ will compete against each other.
     </string>
@@ -198,6 +198,53 @@
     <string name="title_activity_about_fest">about_fest</string>
     <string name="title_activity_informal">Informal Events</string>
     <string name="title_activity_about">About</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="HEX_A_HEX_RULE">
+        *The participants must come in teams of two.\n*This is a 60 minute, pen - paper quiz.\n
+        *It consists of no separate rounds, only one.\n*The question paper is divided in the following six parts :\n#Halloween\n#Hinduism\n#Harry Potter
+        \n#History\n#Hollywood\n#Health\n*Any unfair means will not be entertained.\n*No negative marking exists for wrong answers.
+    </string>
+    <string name="Les_Quizzerables_RULE">
+        *Each team must have four members.\n*Each team must have a name.\n*First round is the written exam (mass elimination).
+        \n*Second round is the newspaper round.\n*Third round is the general quizzing round from.Participating teams will be asked to choose their
+        areas of expertise and questions will be asked accordingly.\n*The last round is the audio visual round.
+    </string>
+    <string name="TUSSLE_OF_TONGUES_RULE">
+        Round 1:\n*An individual event where the participants are required to perceive a series of pictures and speak about
+        the same for 2 minutes.\nRound 2:\n*A two on two turncoat debating round. Teams are made by the organizing committee using
+        the chit system. The two sides get a topic to debate. After 1.5 minutes, they’ll switch the side and debate the other way around.
+        Best students are selected for the last round (They need not be from the same team)\nRound 3:\n* An extemporal speech for 2 minutes
+        has to be made by the participants
+    </string>
+    <string name="NITD_MUN_RULE">No Rules</string>
+    <string name="WORDSMITHS_WONDERLAND_RULE">
+        *Team participation is required for this event. A team of 2 members only, is eligible to participate.\n*In the 1st round of the quiz
+        only one member can participate and the other member can appear for the 2nd round.\n*Any team which is found not adhering to the given
+        rules shall be subjected to disqualification.
+    </string>
+    <string name="FOR_BETTER_FOR_VERSE_RULE">
+        \n*The first letter of each sentence must fall in an alphabetical order. You can repeat the letters, but the order must be followed.
+        Once a stretch of alphabets used, the next cycle can be started.\n*Time duration is 1 hour.\n*Plagiarism is highly discouraged.\n*The
+        judgement would be based on the alphabetical order maintained, vocabulary, grammar, construction and {articulation, body language and
+        overall performance for top five poets} .\n*The decision of the judges is final.
+    </string>
+    <string name="BLIND_FOLD_RULE">No rule</string>
+    <string name="MURRAL_PAINTING_RULE">No rules</string>
+    <string name="COMES_AROUND_GOES_AROUND_RULE">No rules</string>
+    <string name="GHOST_WRITING">Keeping in mind the infamous festival surrounding Insignia, the writing event is sure to give you goosebumps.
+        The hopeful participants shall compose a story of at least 500 words involving a supernatural entity from either mythology or folklore.
+        The “ghost” of the story can also be borrowed from their favourite movie franchise. Individual participation is required.
+    </string>
+    <string name="GHOST_WRITING_RULE">
+        *Every submission must be of 500 words or more.\n*Individual participation is required.\nThe submission must revolve around
+        the given theme: Creatures(s) of the supernatural world borrowed from the following
+        Popular cultural\nMythology\nFolklore
+    </string>
+    <string name="RAGEPICKERS_PURSUIT">RAGPICKER’S PURSUIT</string>
 
+    <string name="RAGEPICKERS_PURSUIT_RULE">*This is a team event. A team should be comprised of 3 – 4 students.\n*The event will be held in
+        slots each with a duration of 90 minutes.\nThe final round will have the competition among the winners of the previous rounds.\n*The participants will be judged based on the timing and the accuracy of the items collected.\n*The decision of the judges is final.</string>
+    <string name="TREASURE_HUNT">To be declared</string>
+    <string name="TREASURE_HUNT_RULE">No rules</string>
 
 </resources>

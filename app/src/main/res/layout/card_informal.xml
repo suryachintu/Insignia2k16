@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:elevation="4dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="4dp"
+    app:cardBackgroundColor="@color/color_green">
 
         <TextView
             android:id="@+id/informal_text"
@@ -11,6 +12,7 @@
             android:layout_height="40dp"
             android:text="Event name"
             android:textAlignment="center"
+            android:textColor="#fff"
             android:layout_margin="5dp"
             android:gravity="center"/>
 

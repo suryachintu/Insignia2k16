@@ -135,11 +135,12 @@ public class MainActivity extends AppCompatActivity
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
 
-                        Toast.makeText(MainActivity.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this,detail_events.class);
-                        intent.putExtra("p",position);
-                        startActivity(intent);
-
+                        if (Constants.FLAGARRAY[position]) {
+                            Toast.makeText(MainActivity.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, detail_events.class);
+                            intent.putExtra("p", position);
+                            startActivity(intent);
+                        }
                     }
                 })
         );
@@ -223,16 +224,10 @@ public class MainActivity extends AppCompatActivity
     private void applyRetrievedLengthLimit() {
 
          Constants.event_name = mRemoteConfig.getString("event_venue");
-         Constants.FLAGARRAY[0] = mRemoteConfig.getBoolean("event1");
-         Constants.FLAGARRAY[1] = mRemoteConfig.getBoolean("event2");
-         Constants.FLAGARRAY[2] = mRemoteConfig.getBoolean("event3");
-         Constants.FLAGARRAY[3] = mRemoteConfig.getBoolean("event4");
-         Constants.FLAGARRAY[4] = mRemoteConfig.getBoolean("event5");
-         Constants.FLAGARRAY[5] = mRemoteConfig.getBoolean("event6");
-         Constants.FLAGARRAY[6] = mRemoteConfig.getBoolean("event7");
-         Constants.FLAGARRAY[7] = mRemoteConfig.getBoolean("event8");
-         Constants.FLAGARRAY[8] = mRemoteConfig.getBoolean("event9");
-//         Constants.FLAGARRAY[9] = mRemoteConfig.getBoolean("event10");
+         String name = "event";
+            for (int i = 0; i < Constants.FLAGARRAY.length; i++) {
+                 Constants.FLAGARRAY[i] = mRemoteConfig.getBoolean(name + i);
+            }
          myAdapter.notifyDataSetChanged();
     }
 
@@ -265,6 +260,10 @@ public class MainActivity extends AppCompatActivity
             mFirebaseAuth.signOut();
             startActivity(new Intent(MainActivity.this,Login.class));
             finish();
+            return true;
+        }
+        if (id == R.id.action_refresh) {
+            fetchConfig();
             return true;
         }
 
@@ -301,7 +300,7 @@ public class MainActivity extends AppCompatActivity
             Email.setType("text/email");
             Email.putExtra(Intent.EXTRA_EMAIL, new String[] { "insignia.alphaz@gmail.com" });
             Email.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
-            Email.putExtra(Intent.EXTRA_TEXT, "Dear ...," + "");
+            Email.putExtra(Intent.EXTRA_TEXT, "Dear Team," + "");
             startActivity(Intent.createChooser(Email, "Send Feedback:"));
             return true;
 

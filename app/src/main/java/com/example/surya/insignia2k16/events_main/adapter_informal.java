@@ -30,14 +30,14 @@ public class Adapter_informal extends RecyclerView.Adapter<Adapter_informal.MyVi
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        holder.mTextView.setText(Constants.mEvents_names[position]);
+        holder.mTextView.setText(Constants.mEvents_Informal[position]);
 //        holder.mImageView.setImageResource(Constants.mEvents_posters[position]);
 
     }
 
     @Override
     public int getItemCount() {
-        return Constants.mEvents_names.length;
+        return Constants.mEvents_Informal.length;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

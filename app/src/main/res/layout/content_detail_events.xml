@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.surya.insignia2k16.events_main.detail_events"
-    tools:showIn="@layout/activity_detail_events">
+    tools:showIn="@layout/activity_detail_events"
+    android:background="#ecf0f1">
 
 
     <RelativeLayout
@@ -26,17 +27,11 @@
             android:id="@+id/detail_linear_layout"
             android:layout_gravity="center">
 
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/ic_label_black_24dp"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:layout_gravity="center"/>-->
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Event Co-odinators :"
+                android:textColor="#1abc9c"
                 android:textSize="24sp"
                 android:layout_margin="10dp"/>
 
@@ -45,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Shankar,Vengal,Pavan"
                 android:textSize="18sp"
-                android:layout_margin="10dp"/>
+                android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -62,21 +57,13 @@
             android:layout_height="2dp"
             android:background="@color/divider"/>
 
-        <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:id="@+id/detail_label"-->
-            <!--android:layout_below="@id/detail_linear_layout"-->
-            <!--android:src="@drawable/ic_label_black_24dp"-->
-            <!--android:layout_marginLeft="10dp"/>-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description :"
+            android:textColor="#1abc9c"
             android:layout_below="@id/detail_linear_layout"
             android:id="@+id/detail_description_label"
-            android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:textSize="24sp"/>
@@ -88,20 +75,18 @@
             android:layout_margin="10dp"
             android:layout_below="@id/detail_description_label"
             android:id="@+id/details_description_text"
-            android:text="@string/NITD_MUN" />
+            android:text="hi" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="60dp"
             android:text="Register"
             android:textSize="18sp"
             android:id="@+id/detail_register_button"
             android:layout_below="@id/details_description_text"
-            android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"
-            android:elevation="8dp"
-            android:background="#737070"
+            android:background="@color/btn_blue"
+            android:layout_centerHorizontal="true"
             android:textColor="#ffffff"/>
 
     </RelativeLayout>
