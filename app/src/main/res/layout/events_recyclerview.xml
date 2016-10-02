@@ -103,27 +103,12 @@
         
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/coming_up_events"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
         <ImageView
             android:id="@+id/AplhaImage"
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="match_parent"
             android:src="@drawable/alphaz"
             android:scaleType="fitXY"
             android:alpha="1"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="#fff"
-            android:gravity="center_horizontal"
-            android:text="Event To be Released Soon"/>
-
-    </LinearLayout>
-    
 </android.support.v7.widget.CardView>

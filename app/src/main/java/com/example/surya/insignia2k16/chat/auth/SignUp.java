@@ -35,6 +35,8 @@ public class SignUp extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().hide();
+
         mUsernameField = (EditText)findViewById(R.id.sign_up_username);
         mEmailField = (EditText)findViewById(R.id.sign_up_email);
         mPasswordField = (EditText)findViewById(R.id.sign_up_password);

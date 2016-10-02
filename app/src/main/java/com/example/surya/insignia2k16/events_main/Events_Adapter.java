@@ -21,15 +21,13 @@ public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mList_item_text;
         public TextView mList_item_venue;
-        public ImageView mList_image_view;
-        public LinearLayout linearLayout;
-
+        public ImageView mList_image_view,alphaImage;
         public MyViewHolder(View view) {
             super(view);
             mList_item_text = (TextView)view.findViewById(R.id.event_name_textview);
             mList_image_view = (ImageView)view.findViewById(R.id.event_image_view);
             mList_item_venue = (TextView)view.findViewById(R.id.venue_name);
-            linearLayout  = (LinearLayout)view.findViewById(R.id.coming_up_events);
+            alphaImage  = (ImageView)view.findViewById(R.id.AplhaImage);
         }
     }
 
@@ -50,9 +48,9 @@ public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHo
         holder.mList_image_view.setImageResource(Constants.mEvents_posters[position]);
         holder.mList_item_venue.setText(Constants.event_name);
         if (Constants.FLAGARRAY[position]){
-            holder.linearLayout.setVisibility(View.INVISIBLE);
+            holder.alphaImage.setVisibility(View.INVISIBLE);
         }else {
-            holder.linearLayout.setVisibility(View.VISIBLE);
+            holder.alphaImage.setVisibility(View.VISIBLE);
         }
     }
 

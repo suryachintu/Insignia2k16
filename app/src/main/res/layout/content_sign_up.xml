@@ -123,6 +123,7 @@
                 android:text="Sign In"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:textColor="#f2784b"
                 android:outlineProvider="bounds"/>
 
         </LinearLayout>

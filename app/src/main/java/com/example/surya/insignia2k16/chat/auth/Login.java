@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +39,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     EditText mEmailField,mPasswordField;
     Button mSign_in_btn,mGoogle_btn;
     String mEmail,mPassword;
-    TextView sign_up_label;
+    TextView sign_up_label,resetPass;
     FirebaseAuth mAuth;
     private GoogleApiClient mGoogleApiClient;
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         setContentView(R.layout.activity_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().hide();
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -60,11 +64,13 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         mSign_in_btn = (Button)findViewById(R.id.sign_in_btn);
         mGoogle_btn = (Button)findViewById(R.id.google_btn);
         sign_up_label = (TextView)findViewById(R.id.sign_up_text);
+        resetPass = (TextView)findViewById(R.id.resetPass);
 
         mAuth = FirebaseAuth.getInstance();
         mSign_in_btn.setOnClickListener(this);
         mGoogle_btn.setOnClickListener(this);
         sign_up_label.setOnClickListener(this);
+        resetPass.setOnClickListener(this);
 
     }
 
@@ -142,8 +148,50 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             case R.id.google_btn:
                 googleLogin();
                 break;
+            case R.id.resetPass:
+                resetPassword();
+                break;
         }
 
+    }
+
+    private void resetPassword() {
+        //resetPassword
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.resetdialog);
+        dialog.setTitle("Reset Password");
+
+        dialog.show();
+
+        final EditText emailedit_txt = (EditText) dialog.findViewById(R.id.login_email);
+        Button submitBtn = (Button)dialog.findViewById(R.id.submit);
+        final LinearLayout layout_email = (LinearLayout) dialog.findViewById(R.id.email_layout);
+        final LinearLayout layout_auth = (LinearLayout) dialog.findViewById(R.id.auth_layout);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                layout_auth.setVisibility(View.VISIBLE);
+                layout_email.setVisibility(View.GONE);
+                if (checkEmail(emailedit_txt.getText().toString()))
+                mAuth.sendPasswordResetEmail(emailedit_txt.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(Login.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(Login.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                }
+
+                                dialog.dismiss();
+                            }
+                        });
+                else{
+                    emailedit_txt.setError("Invalid Email");
+                }
+            }
+        });
     }
 
     private void googleLogin() {
@@ -155,7 +203,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .enableAutoManage(this /* FragmentActivity */,0, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -180,7 +228,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-        final Dialog dialog = new Dialog(this);
+        dialog = new Dialog(this);
         dialog.setContentView(R.layout.authentication_dialog);
         dialog.setTitle("Loading...");
         dialog.setCancelable(false);
