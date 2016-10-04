@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F0F8FF">
+<!--<ScrollView-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#F0F8FF">-->
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,144 +20,187 @@
     tools:context=".chat.auth.Login"
     tools:showIn="@layout/activity_login">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image_ins"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/insignia"
-        app:civ_border_width="0.3dp"
-        android:layout_centerHorizontal="true"/>
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/profile_image_ins"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:src="@drawable/insignia"-->
+        <!--app:civ_border_width="0.3dp"-->
+        <!--android:layout_centerHorizontal="true"/>-->
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/login_card"
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/login_card"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:elevation="8dp"-->
+        <!--android:layout_below="@+id/profile_image_ins"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--app:cardCornerRadius="4dp">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/login_txt"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:text="LOGIN"-->
+            <!--android:textSize="28sp"-->
+            <!--android:padding="5dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:textStyle="bold"/>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:padding="10dp">-->
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="15dp">-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/login_email"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="Email"-->
+                <!--android:inputType="textEmailAddress"/>-->
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/login_password"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="Password"-->
+                <!--android:inputType="textPassword"/>-->
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/sign_in_btn"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:background="#123456"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:text="Sign In"/>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_marginTop="10dp">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/resetPass"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Forgot Password"-->
+                <!--android:textColor="#f2784b"-->
+                <!--android:textSize="20sp"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/sign_up_text"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="New User"-->
+                <!--android:gravity="right"-->
+                <!--android:textColor="#f2784b"-->
+                <!--android:textSize="22sp"/>-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="25dp"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<View-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="4dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@android:color/darker_gray"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="OR"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_weight="0"-->
+                <!--android:textSize="20sp"/>-->
+            <!--<View-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="4dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@android:color/darker_gray"/>-->
+        <!--</LinearLayout>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/google_btn"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:background="#123456"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:text="Sign In with Google"/>-->
+
+        <!--</LinearLayout>-->
+    <!--</android.support.v7.widget.CardView>-->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image_ins"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_above="@+id/textview"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/insignia"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+
+    <TextView
+        android:id="@+id/textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="8dp"
-        android:layout_below="@+id/profile_image_ins"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="4dp">
+        android:text="NIT DELHI ANNUAL LITERATURE FEST"
+        android:textSize="24sp"
+        android:layout_above="@+id/google_btn"
+        android:textAlignment="center"/>
 
-        <TextView
-            android:id="@+id/login_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="LOGIN"
-            android:textSize="28sp"
-            android:padding="5dp"
-            android:layout_marginBottom="5dp"
-            android:textStyle="bold"/>
+    <Button
+        android:id="@+id/google_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/btn_blue"
+        android:textColor="#ffffff"
+        android:text="Sign In with Google"
+        android:layout_above="@+id/guest_btn"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:padding="10dp">
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+    <Button
+        android:id="@+id/guest_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/btn_blue"
+        android:textColor="#ffffff"
+        android:text="Sign as a Guest"/>
 
-            <EditText
-                android:id="@+id/login_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"/>
 
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/login_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPassword"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:id="@+id/sign_in_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#123456"
-            android:textColor="#ffffff"
-            android:text="Sign In"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/resetPass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forgot Password"
-                android:textColor="#f2784b"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:id="@+id/sign_up_text"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="New User"
-                android:gravity="right"
-                android:textColor="#f2784b"
-                android:textSize="22sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="4dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@android:color/darker_gray"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OR"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0"
-                android:textSize="20sp"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="4dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@android:color/darker_gray"/>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/google_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="#123456"
-            android:textColor="#ffffff"
-            android:text="Sign In with Google"/>
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
 
 </RelativeLayout>
-</ScrollView>
+<!--</ScrollView>-->

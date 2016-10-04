@@ -24,11 +24,11 @@
             android:name=".events_main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
             <intent-filter>
                 <data
                     android:host="open"
@@ -130,17 +130,17 @@
                 android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
         </activity>
 
-        <meta-data
-            android:name="io.branch.sdk.BranchKey"
-            android:value="key_live_fisblHeCz1uxMc1drv8Ygicbtwe1n4Rf" />
+        <!--<meta-data-->
+            <!--android:name="io.branch.sdk.BranchKey"-->
+            <!--android:value="key_live_fisblHeCz1uxMc1drv8Ygicbtwe1n4Rf" />-->
 
-        <receiver
-            android:name="io.branch.referral.InstallListener"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
+        <!--<receiver-->
+            <!--android:name="io.branch.referral.InstallListener"-->
+            <!--android:exported="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.android.vending.INSTALL_REFERRER" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
         <activity
             android:name=".about.AboutInsignia"
@@ -168,6 +168,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.surya.insignia2k16.events_main.MainActivity" />
+        </activity>
+        <activity android:name=".welcomeScreens.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
