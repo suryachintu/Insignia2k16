@@ -32,7 +32,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,View.OnClickListener{
+public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
     private static final String TAG = "Login Activity";
     private static final int RC_SIGN_IN = 9001;
@@ -66,13 +66,26 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .enableAutoManage(this /* FragmentActivity */,0, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-          mGuest_btn = (Button)findViewById(R.id.google_btn);
+          mGuest_btn = (Button)findViewById(R.id.guest_btn);
         mGoogle_btn = (Button)findViewById(R.id.google_btn);
 //
         mAuth = FirebaseAuth.getInstance();
-        mGuest_btn.setOnClickListener(this);
-        mGoogle_btn.setOnClickListener(this);
-        mGuest_btn.setOnClickListener(this);
+        mGuest_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Login.this, "hi", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Login.this,MainActivity.class);
+                intent.putExtra("guest",true);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
+        mGoogle_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                googleLogin();
+            }
+        });
 //
     }
 
@@ -160,17 +173,4 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.guest_btn:
-                Intent intent = new Intent(Login.this,SignUp.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                break;
-            case R.id.google_btn:
-                googleLogin();
-                break;
-        }
-    }
 }

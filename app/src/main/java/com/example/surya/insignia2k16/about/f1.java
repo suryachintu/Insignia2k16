@@ -63,17 +63,16 @@ public class f1 extends Fragment {
             /*for (int i = 0; i < ITEM_COUNT; ++i) {
                 mContentItems.add(new Object());
             }*/
-            mContentItems.add(new Object("Aditya","71254639889","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Tejesh","987456123","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Sravan","897546213","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Shehnaz","874596213","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Yoga","893256471","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Avtansh","99999999999","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Surya","99999999999","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Yoga","99999999999","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Yoga","99999999999","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Yoga","99999999999","xyz@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Yoga","99999999999","xyz@gmail.com",R.drawable.image3));
+            mContentItems.add(new Object("Rajiv Tripathi","7835014007","Chairmen","rajivtripathi@nitdelhi.ac.in",R.drawable.image3));
+            mContentItems.add(new Object("Aditya Chamarthi","9910663180","Convener","chamarthi.aditya@nitdelhi.ac.in",R.drawable.image3));
+            mContentItems.add(new Object("Yoga Sasidhar Reddy.B","8750267966","Co-Convener","141200014@nitdelhi.ac.in",R.drawable.image3));
+            mContentItems.add(new Object("Sanyogitha Singh","9560494624","Sponsorship","sanyogitha.khatkar@nitdelhi.ac.in",R.drawable.image3));
+            mContentItems.add(new Object("Sai Venkata Manohar","8130129479","Print and Design","saimanohar.venkata@gmail.com",R.drawable.image3));
+            mContentItems.add(new Object("Himanshu Sharma","9953151638","Publicity","223himanshu@gmail.com",R.drawable.image3));
+            mContentItems.add(new Object("Sravan Kumar","8527268276","Infrastructure and Logistics","sra2kumar42003210@gmail.com",R.drawable.image3));
+            mContentItems.add(new Object("Sravan Kumar","8527268276","Website","141100042@gmail.com",R.drawable.image3));
+            mContentItems.add(new Object("Surya Teja","7065118750","App Developer","suryaparsa@gmail.com",R.drawable.image3));
+            mContentItems.add(new Object("Vengal Rao","7532954739","App Developer","vengalraoguttha@gmail.com",R.drawable.image3));
             mAdapter.notifyDataSetChanged();
         }
     }

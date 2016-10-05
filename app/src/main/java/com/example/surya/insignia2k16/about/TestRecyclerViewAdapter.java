@@ -31,15 +31,10 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
     int lastPosition=-1;
-Context context1;
-    TextView personName;
-    TextView personAge;
-    ImageView personPhoto;
+    Context context1;
 
     public TestRecyclerViewAdapter(List<Object> contents) {
         this.contents=contents;
-
-
 
     }
 
@@ -53,9 +48,9 @@ Context context1;
     public static class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         CardView cv;
-        TextView personName;
-        TextView personAge;
-        TextView personAge1;
+        TextView personName,designation;
+        TextView phNum;
+        TextView email;
         ImageView personPhoto;
         Context context;
         FrameLayout container;
@@ -66,14 +61,15 @@ Context context1;
             context = itemView.getContext();
             cv = (CardView)itemView.findViewById(R.id.card_view);
             personName = (TextView)itemView.findViewById(R.id.person_name);
-            personAge = (TextView)itemView.findViewById(R.id.person_contact);
-            personAge1 = (TextView)itemView.findViewById(R.id.person_contact1);
+            designation = (TextView)itemView.findViewById(R.id.person_designation);
+            phNum = (TextView)itemView.findViewById(R.id.person_contact);
+            email = (TextView)itemView.findViewById(R.id.person_contact1);
             personPhoto = (CircleImageView)itemView.findViewById(R.id.person_photo);
             container=(FrameLayout)itemView.findViewById(R.id.frame_layout);
 
-
-            personAge.setOnClickListener(this);
-            personAge1.setOnClickListener(this);
+//
+//            phNum.setOnClickListener(this);
+//            email.setOnClickListener(this);
         }
 
         @Override
@@ -81,7 +77,7 @@ Context context1;
             final Intent intent,intent1;
             // RecyclerView.ViewHolder holder = (RecyclerView.ViewHolder) v.getTag();
             int position = /*holder*/getAdapterPosition();
-            if (v == personAge) {
+            if (v == phNum) {
 
 
                 switch (position) {
@@ -99,7 +95,7 @@ Context context1;
                 }
                 context.startActivity(intent);
             }
-            if(v==personAge1)
+            if(v== email)
             {
 
                 switch (position) {
@@ -159,12 +155,10 @@ Context context1;
 
 
         personViewHolder.personName.setText(contents.get(i).name);
-        personViewHolder.personAge.setText(contents.get(i).age);
-        personViewHolder.personAge1.setText(contents.get(i).mail);
+        personViewHolder.phNum.setText(contents.get(i).phNum);
+        personViewHolder.email.setText(contents.get(i).mail);
+        personViewHolder.designation.setText(contents.get(i).designation);
         personViewHolder.personPhoto.setImageResource(contents.get(i).photoId);
-
-
-
 
         setAnimation(personViewHolder.container,i);
     }

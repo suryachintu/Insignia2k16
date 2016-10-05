@@ -122,7 +122,7 @@ public class TestRecyclerViewAdapter2 extends RecyclerView.Adapter<TestRecyclerV
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
 
         personViewHolder.personName.setText(contents.get(i).name);
-        personViewHolder.personAge.setText(contents.get(i).age);
+        personViewHolder.personAge.setText(contents.get(i).phNum);
         personViewHolder.personPhoto.setImageResource(contents.get(i).photoId);
         setAnimation(personViewHolder.container,i);
     }

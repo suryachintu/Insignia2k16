@@ -344,21 +344,27 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        if (mFirebaseUser == null){
-            Toast.makeText(MainActivity.this, "null", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this,Login.class));
-            finish();
-            return;
+
+        boolean flag = getIntent().getBooleanExtra("guest",false);
+
+        if (flag){
+            mTextView.setText("Guest");
         }
-        if (mFirebaseUser.getDisplayName() != null)
-        mTextView.setText(mFirebaseUser.getDisplayName());
-        else
-        mTextView.setText(mFirebaseUser.getEmail());
-        if (mFirebaseUser.getPhotoUrl() != null)
-        Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(mImageView);
+        else {
+            if (mFirebaseUser == null) {
+                Toast.makeText(MainActivity.this, "null", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, Login.class));
+                finish();
+                return;
+            }
+            if (mFirebaseUser.getDisplayName() != null)
+                mTextView.setText(mFirebaseUser.getDisplayName());
+            else
+                mTextView.setText(mFirebaseUser.getEmail());
+            if (mFirebaseUser.getPhotoUrl() != null)
+                Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(mImageView);
+        }
     }
-
-
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

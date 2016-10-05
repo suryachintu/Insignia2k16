@@ -12,6 +12,7 @@
     <color name="btn_blue">#2c3e50</color>
     <color name="dialogHeader">#34495e</color>
     <color name="color_green">#2ecc71</color>
+    <color name="color_textHeaders">#1abc9c</color>
 
     <!--welcome screen -->
     <!-- Screens background color-->

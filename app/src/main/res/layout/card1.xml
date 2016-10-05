@@ -27,7 +27,8 @@
                 android:id="@+id/person_photo"
                 android:layout_width="60dp"
                 android:layout_height="67dp"
-                android:src="@drawable/insignia"/>
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_account_circle_black_48dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,9 +36,21 @@
                 android:id="@+id/person_name"
                 android:layout_marginLeft="16dp"
                 android:layout_toRightOf="@+id/person_photo"
+                android:textColor="@color/dialogHeader"
                 android:layout_alignParentTop="true"
                 android:text="Name"
                 android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_designation"
+                android:layout_marginLeft="16dp"
+                android:layout_below="@+id/person_name"
+                android:layout_toRightOf="@+id/person_photo"
+                android:textColor="@color/color_textHeaders"
+                android:text="Name"
+                android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="16dp"
@@ -46,7 +59,7 @@
                 android:id="@+id/im1"
                 android:layout_marginLeft="16dp"
                 android:layout_toRightOf="@+id/person_photo"
-                android:layout_below="@+id/person_name"
+                android:layout_below="@+id/person_designation"
                 android:src="@drawable/ic_contact_phone_black_24dp"/>
 
             <TextView
@@ -54,8 +67,11 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/person_contact"
                 android:layout_marginLeft="4dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/dialogHeader"
+                android:autoLink="phone"
                 android:layout_toRightOf="@+id/im1"
-                android:layout_below="@+id/person_name"
+                android:layout_below="@+id/person_designation"
                 android:text="9999999999"/>
 
             <ImageView
@@ -63,7 +79,7 @@
                 android:layout_height="16dp"
                 android:src="@drawable/ic_contact_mail_black_24dp"
                 android:id="@+id/im2"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginLeft="16dp"
                 android:layout_below="@id/im1"
                 android:layout_toRightOf="@id/person_photo"/>
@@ -74,6 +90,9 @@
                 android:id="@+id/person_contact1"
                 android:layout_toRightOf="@id/im2"
                 android:layout_marginLeft="4dp"
+                android:layout_marginTop="3dp"
+                android:autoLink="email"
+                android:textColor="@color/dialogHeader"
                 android:layout_below="@+id/person_contact"
                 android:text="9999999999"/>
         </RelativeLayout>

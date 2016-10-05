@@ -46,11 +46,11 @@ public class TestRecyclerViewAdapter4 extends RecyclerView.Adapter<TestRecyclerV
             cv = (CardView) itemView.findViewById(R.id.cv);
             personName = (TextView) itemView.findViewById(R.id.person_name);
             personAge = (TextView) itemView.findViewById(R.id.person_contact);
-
-            personName1 = (TextView) itemView.findViewById(R.id.person_name1);
-            personAge1 = (TextView) itemView.findViewById(R.id.person_contact1);
-            personPhoto = (ImageView) itemView.findViewById(R.id.person_photo);
-            container=(FrameLayout)itemView.findViewById(R.id.frame_layout);
+//
+//            personName1 = (TextView) itemView.findViewById(R.id.person_name1);
+//            personAge1 = (TextView) itemView.findViewById(R.id.person_contact1);
+//            personPhoto = (ImageView) itemView.findViewById(R.id.person_photo);
+//            container=(FrameLayout)itemView.findViewById(R.id.frame_layout);
         }
     }
 
@@ -83,13 +83,13 @@ public class TestRecyclerViewAdapter4 extends RecyclerView.Adapter<TestRecyclerV
 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
-
-        personViewHolder.personName.setText(contents.get(i).name);
-        personViewHolder.personAge.setText(contents.get(i).age);
-
-        personViewHolder.personName1.setText(contents.get(i).name1);
-        personViewHolder.personAge1.setText(contents.get(i).age1);
-        personViewHolder.personPhoto.setImageResource(contents.get(i).photoId);
+//
+//        personViewHolder.personName.setText(contents.get(i).name);
+//        personViewHolder.personAge.setText(contents.get(i).phNum);
+//
+//        personViewHolder.personName1.setText(contents.get(i).name1);
+//        personViewHolder.personAge1.setText(contents.get(i).age1);
+//        personViewHolder.personPhoto.setImageResource(contents.get(i).photoId);
 
     }
 

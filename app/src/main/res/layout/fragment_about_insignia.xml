@@ -1,16 +1,62 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:id="@+id/person_photo"
+                android:src="@drawable/insignia"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_name"
+                android:layout_below="@+id/person_photo"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="#333"
+                android:text="@string/insignia_description"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/aplhazHeader"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/person_name"
+                android:textColor="@color/color_textHeaders"
+                android:text="ALPHAZ"
+                android:layout_centerHorizontal="true"
+                android:textSize="40sp"/>
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context="com.example.surya.insignia2k16.about.AboutInsignia$PlaceholderFragment">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aplhazHeader"
+                android:layout_marginTop="10dp"
+                android:text="@string/alphaz_description"
+                android:textSize="20sp"
+                android:textColor="#333"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    </android.support.v7.widget.CardView>
 
-</RelativeLayout>
+</FrameLayout>
+
+</ScrollView>

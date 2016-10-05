@@ -59,18 +59,18 @@ public class f2 extends Fragment {
         {
             /*for (int i = 0; i < ITEM_COUNT; ++i) {
                 mContentItems.add(new Object());
-            }*/
-            mContentItems.add(new Object("Google","Title sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Youtube","co sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Facebook","Shirt sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Pizza Hut","Title sponsor",R.drawable.image2));
-            mContentItems.add(new Object("KFC","Food sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
+//            }*/
+//            mContentItems.add(new Object("Google","Title sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Youtube","co sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Facebook","Shirt sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Pizza Hut","Title sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("KFC","Food sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
+//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
             mAdapter.notifyDataSetChanged();
         }
     }

@@ -59,14 +59,14 @@ public class f3 extends Fragment {
         {
             /*for (int i = 0; i < ITEM_COUNT; ++i) {
                 mContentItems.add(new Object());
-            }*/
-            mContentItems.add(new Object("What is insignia?","It is Alphaz Fest"));
-            mContentItems.add(new Object("Who is the Director of NIT Delhi?","Sharma is the director of nit delhi"));
-            mContentItems.add(new Object("How are You?","I am Fine but I am missing something"));
-            mContentItems.add(new Object("What is Your team count?","Our team is of 4,Surya,Havish,Vengal,Chandan"));
-            mContentItems.add(new Object("Where is Nit Delhi?","Nit Delhi is in Narela,Delhi"));
-            mContentItems.add(new Object("Youtube","co sponsor"));
-            mAdapter.notifyDataSetChanged();
+//            }*/
+//            mContentItems.add(new Object("What is insignia?","It is Alphaz Fest"));
+//            mContentItems.add(new Object("Who is the Director of NIT Delhi?","Sharma is the director of nit delhi"));
+//            mContentItems.add(new Object("How are You?","I am Fine but I am missing something"));
+//            mContentItems.add(new Object("What is Your team count?","Our team is of 4,Surya,Havish,Vengal,Chandan"));
+//            mContentItems.add(new Object("Where is Nit Delhi?","Nit Delhi is in Narela,Delhi"));
+//            mContentItems.add(new Object("Youtube","co sponsor"));
+//            mAdapter.notifyDataSetChanged();
         }
     }
 }
