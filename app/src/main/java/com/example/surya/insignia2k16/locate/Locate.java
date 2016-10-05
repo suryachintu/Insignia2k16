@@ -382,15 +382,29 @@ public class Locate extends FragmentActivity implements OnMapReadyCallback ,
             //            mMap.moveCamera(CameraUpdateFactory.newLatLng(des));
             //            CameraUpdate zoom = CameraUpdateFactory.zoomTo(11);
             //            mMap.animateCamera(zoom);
+            Log.d("xxx",des+" "+f);
             if(des!=null&&f!=null){
                 String url = getDirectionsUrl(f, des);
                 Log.d("xxxxxx",url);
+                Location A=new Location("A");
+                A.setLatitude(f.latitude);
+                A.setLongitude(f.longitude);
+                Location B=new Location("B");
+                B.setLatitude(des.latitude);
+                B.setLongitude(des.longitude);
+                float distance=A.distanceTo(B);
 
-                Snackbar.make(findViewById(android.R.id.content), "Getting your route...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                DownloadTask downloadTask = new DownloadTask();
-                // Start downloading json data from Google Directions API
-                downloadTask.execute(url);
+                if(distance>200){
+                    Snackbar.make(findViewById(android.R.id.content), "Getting your route...", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    DownloadTask downloadTask = new DownloadTask();
+                    // Start downloading json data from Google Directions API
+                    downloadTask.execute(url);
+                }else{
+                    Snackbar.make(findViewById(android.R.id.content), "You are at National Institute of Technology,Delhi :)", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+
             }else{
 
                 Snackbar.make(findViewById(android.R.id.content), "Check your  Internet Connection Or turn on GPS", Snackbar.LENGTH_LONG)

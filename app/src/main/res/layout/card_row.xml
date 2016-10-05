@@ -3,19 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="4dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:id="@+id/cardView"
     android:layout_gravity="center">
-
-    <ImageView
-        android:id="@+id/img3"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="center"
-        android:src="@drawable/insignia"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content">
+        <ImageView
+            android:visibility="visible"
+            android:adjustViewBounds="true"
+            android:id="@+id/intafeedpic"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/insignia"/>
+        <!--<ImageView-->
+        <!--android:visibility="gone"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:id="@+id/img3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:scaleType="center"-->
+        <!--android:src="@drawable/progree_animation"/>-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/back"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:autoLink="all"
+            android:textSize="18sp"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/feed_text"/>
+
+    </LinearLayout>
+
+
 
 </android.support.v7.widget.CardView>

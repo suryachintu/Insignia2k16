@@ -89,6 +89,8 @@
         The given story should be written in such a way that when read backwards, i.e. if the fourth paragraph becomes the first paragraph,
         a different story should be created. This individual event, will truly put your mind to test and challenge your wits.
     </string>
+    <string name="invitation_subject">Try this great app!</string>
+    <string name="invitation_custom_image">https://igcdn-photos-f-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-19/s150x150/13658302_891675384294829_1143366670_a.jpg</string>
     <string name="title_activity_detail_screen">Event Name</string>
     <string name="title_activity_detail_events">detail_events</string>
     <string name="title_activity_instafeed">Instafeed</string>
@@ -97,7 +99,7 @@
     <string name="title_activity_about_insignia">AboutInsignia</string>
 
     <string name="invitation_title">Insignia</string>
-    <string name="invitation_message">check this out</string>
+    <string name="invitation_message">Insignia 2K16 Android app. Check it out!!</string>
     <string name="invitation_cta">Install!</string>
 
 

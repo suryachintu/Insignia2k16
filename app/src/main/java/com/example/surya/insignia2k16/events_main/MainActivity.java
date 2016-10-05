@@ -336,7 +336,25 @@ public class MainActivity extends AppCompatActivity
     private void onInviteClicked() {
         Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
                 .setMessage(getString(R.string.invitation_message))
-                .setCallToActionText(getString(R.string.invitation_cta))
+                //getString(R.string.invitation_custom_image)))
+                .setEmailHtmlContent("<html>\n" +
+                        "<body style=\"text-align:center;\">\n" +
+                        "<img src=\"https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/12118848_1530913257200726_4774124256511356201_n.jpg?oh=70750b04f3ce8df15d2128fba80f883a&oe=5871A6AC\"/>\n" +
+                        "\n" +
+                        "<h1>Insignia 2K16</h1>\n" +
+                        "<p> \n" +
+                        "        This app is a complete guide to all the formal and informal events of the fest.<br>\n" +
+                        "\tYou can keep an eye on your favourite events, get notified.\n" +
+                        "        and and get connected to the organizers of the fest.<br>\n" +
+                        "        Download the app and SignUp to become a part of the sophomore edition of Insignia.\n" +
+                        "\n" +
+                        "\n" +
+                        "<a href=\"%%APPINVITE_LINK_PLACEHOLDER%%\">Install the app and have great fun.</a>\n" +
+                        "</p>\n" +
+                        "</body>\n" +
+                        "</html>")
+                .setEmailSubject(getString(R.string.invitation_subject))
+                //.setCallToActionText(getString(R.string.invitation_cta))
                 .build();
         startActivityForResult(intent,REQUEST_INVITE);
     }
