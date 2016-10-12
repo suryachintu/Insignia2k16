@@ -1,5 +1,8 @@
 package com.example.surya.insignia2k16.about;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +12,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.surya.insignia2k16.Constants;
 import com.example.surya.insignia2k16.R;
+import com.example.surya.insignia2k16.events_main.ItemOffsetDecoration;
+import com.example.surya.insignia2k16.events_main.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +28,6 @@ import java.util.List;
  * Created by hp on 01-07-2016.
  */
 public class f2 extends Fragment {
-    static final boolean GRID_LAYOUT = false;
-    private static final int ITEM_COUNT = 100;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private List<Object> mContentItems = new ArrayList<>();
@@ -40,38 +47,33 @@ public class f2 extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager;
 
-        if (GRID_LAYOUT) {
-            layoutManager = new GridLayoutManager(getActivity(), 2);
-        } else {
-            layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager = new GridLayoutManager(getActivity(),2);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.item_offset);
+        mRecyclerView.addItemDecoration(itemDecoration);
+
+        for (int i = 0; i < 6; i++) {
+
+            mContentItems.add(new Object("Sponser1","Sponser@Insignia","Title Sponser","http://www.google.com",R.drawable.insignia_cover));
+
         }
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setHasFixedSize(true);
-
-        //Use this now
-       // mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-
         mAdapter = new TestRecyclerViewAdapter2(mContentItems);
 
-        //mAdapter = new RecyclerViewMaterialAdapter();
+        mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
-        if(mContentItems!=null) mContentItems.clear();
-        {
-            /*for (int i = 0; i < ITEM_COUNT; ++i) {
-                mContentItems.add(new Object());
-//            }*/
-//            mContentItems.add(new Object("Google","Title sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Youtube","co sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Facebook","Shirt sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Pizza Hut","Title sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("KFC","Food sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-//            mContentItems.add(new Object("Hungry House","Title sponsor",R.drawable.image2));
-            mAdapter.notifyDataSetChanged();
-        }
+
+        mRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+
+                        intent.setData(Uri.parse(mContentItems.get(position).mail));
+
+                        startActivity(intent);
+
+                    }
+                })
+        );
     }
+
 }

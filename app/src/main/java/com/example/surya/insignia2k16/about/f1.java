@@ -51,9 +51,6 @@ public class f1 extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        //Use this now
-      //  mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-
         mAdapter = new TestRecyclerViewAdapter(mContentItems);
 
         //mAdapter = new RecyclerViewMaterialAdapter();
@@ -63,16 +60,18 @@ public class f1 extends Fragment {
             /*for (int i = 0; i < ITEM_COUNT; ++i) {
                 mContentItems.add(new Object());
             }*/
-            mContentItems.add(new Object("Rajiv Tripathi","7835014007","Chairmen","rajivtripathi@nitdelhi.ac.in",R.drawable.image3));
-            mContentItems.add(new Object("Aditya Chamarthi","9910663180","Convener","chamarthi.aditya@nitdelhi.ac.in",R.drawable.image3));
-            mContentItems.add(new Object("Yoga Sasidhar Reddy.B","8750267966","Co-Convener","141200014@nitdelhi.ac.in",R.drawable.image3));
-            mContentItems.add(new Object("Sanyogitha Singh","9560494624","Sponsorship","sanyogitha.khatkar@nitdelhi.ac.in",R.drawable.image3));
-            mContentItems.add(new Object("Sai Venkata Manohar","8130129479","Print and Design","saimanohar.venkata@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Himanshu Sharma","9953151638","Publicity","223himanshu@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Sravan Kumar","8527268276","Infrastructure and Logistics","sra2kumar42003210@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Sravan Kumar","8527268276","Website","141100042@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Surya Teja","7065118750","App Developer","suryaparsa@gmail.com",R.drawable.image3));
-            mContentItems.add(new Object("Vengal Rao","7532954739","App Developer","vengalraoguttha@gmail.com",R.drawable.image3));
+            mContentItems.add(new Object("Rajiv Tripathi","7835014007","Chairman","rajivtripathi@nitdelhi.ac.in",R.drawable.rajiv));
+            mContentItems.add(new Object("Aditya Chamarthi","9910663180","Convener","chamarthi.aditya@nitdelhi.ac.in",R.drawable.aditya));
+            mContentItems.add(new Object("Yoga Sasidhar Reddy.B","8750267966","Co-Convener","141200014@nitdelhi.ac.in",R.drawable.yoga));
+            mContentItems.add(new Object("Tejesh","9971574459","Hospitality","tejesh36p@gmail.com",R.drawable.tejesh));
+            mContentItems.add(new Object("Sanyogitha Singh","9560494624","Sponsorship","sanyogitha.khatkar@nitdelhi.ac.in",R.drawable.sanyogita));
+            mContentItems.add(new Object("Sai Venkata Manohar","8130129479","Print and Design","saimanohar.venkata@gmail.com",R.drawable.manohar));
+            mContentItems.add(new Object("Himanshu Sharma","9953151638","Publicity","223himanshu@gmail.com",R.drawable.himanshu));
+            mContentItems.add(new Object("Sravan Kumar","8527268276","Infrastructure and Logistics","sra2kumar42003210@gmail.com",R.drawable.sravan));
+            mContentItems.add(new Object("Anurag Giri","8527268276","Website","anuragmgiri@gmail.com",R.drawable.anurag));
+            mContentItems.add(new Object("Surya Teja","7065118750","App Developer","suryaparsa@gmail.com",R.drawable.surya));
+            mContentItems.add(new Object("Vengal Rao","7532954739","App Developer","vengalraoguttha@gmail.com",R.drawable.vengal));
+            mContentItems.add(new Object("N.Havish","9560468502","Discipline","havihavish@gmail.com",R.drawable.havish));
             mAdapter.notifyDataSetChanged();
         }
     }

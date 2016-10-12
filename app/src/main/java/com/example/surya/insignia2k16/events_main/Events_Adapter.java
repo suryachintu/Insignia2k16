@@ -20,13 +20,15 @@ public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mList_item_text;
-        public TextView mList_item_venue;
+        public TextView mList_item_venue,Co_ods,event_time;
         public ImageView mList_image_view,alphaImage;
         public MyViewHolder(View view) {
             super(view);
             mList_item_text = (TextView)view.findViewById(R.id.event_name_textview);
             mList_image_view = (ImageView)view.findViewById(R.id.event_image_view);
             mList_item_venue = (TextView)view.findViewById(R.id.venue_name);
+            Co_ods = (TextView)view.findViewById(R.id.co_od);
+            event_time = (TextView)view.findViewById(R.id.event_time);
             alphaImage  = (ImageView)view.findViewById(R.id.AplhaImage);
         }
     }
@@ -44,10 +46,13 @@ public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHo
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mList_item_text.setText(Constants.mEvents_names[position]);
-        holder.mList_image_view.setImageResource(Constants.mEvents_posters[position]);
-        holder.mList_item_venue.setText(Constants.event_name);
-        if (Constants.FLAGARRAY[position]){
+        if (position<Constants.eventsModels.size()){
+
+            holder.mList_item_text.setText(Constants.eventsModels.get(position).getEventName());
+            holder.mList_image_view.setImageResource(Constants.eventsModels.get(position).getPosterId());
+            holder.mList_item_venue.setText(Constants.eventsModels.get(position).getEventName());
+            holder.Co_ods.setText(Constants.eventsModels.get(position).getCo_od());
+            holder.event_time.setText(Constants.eventsModels.get(position).getEvent_time());
             holder.alphaImage.setVisibility(View.INVISIBLE);
         }else {
             holder.alphaImage.setVisibility(View.VISIBLE);
@@ -56,6 +61,6 @@ public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return Constants.mEvents_names.length;
+        return 12;
     }
 }

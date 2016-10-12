@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.surya.insignia2k16.Constants;
 import com.example.surya.insignia2k16.R;
 import com.example.surya.insignia2k16.events_main.MainActivity;
+import com.example.surya.insignia2k16.welcomeScreens.PrefManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -69,11 +70,14 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
           mGuest_btn = (Button)findViewById(R.id.guest_btn);
         mGoogle_btn = (Button)findViewById(R.id.google_btn);
 //
+        final PrefManager prefManager = new PrefManager(this);
+
         mAuth = FirebaseAuth.getInstance();
         mGuest_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Login.this, "hi", Toast.LENGTH_SHORT).show();
+                prefManager.setUserLoggedIn(true);
                 Intent intent = new Intent(Login.this,MainActivity.class);
                 intent.putExtra("guest",true);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -202,33 +202,32 @@
     <string name="title_activity_about">About</string>
     <string name="action_refresh">Refresh</string>
     <string name="HEX_A_HEX_RULE">
-        *The participants must come in teams of two.\n*This is a 60 minute, pen - paper quiz.\n
-        *It consists of no separate rounds, only one.\n*The question paper is divided in the following six parts :\n#Halloween\n#Hinduism\n#Harry Potter
-        \n#History\n#Hollywood\n#Health\n*Any unfair means will not be entertained.\n*No negative marking exists for wrong answers.
+        \u2022The participants must come in teams of two.\n\u2022This is a 60 minute, pen - paper quiz.\n\u2022It consists of no separate rounds, only one.\n\u2022The question paper is divided in the following six parts :\n\t#Halloween\n\t#Hinduism\n\t#Harry Potter
+        \n\t#History\n\t#Hollywood\n\t#Health\n\u2022Any unfair means will not be entertained.\n\u2022No negative marking exists for wrong answers.
     </string>
     <string name="Les_Quizzerables_RULE">
-        *Each team must have four members.\n*Each team must have a name.\n*First round is the written exam (mass elimination).
-        \n*Second round is the newspaper round.\n*Third round is the general quizzing round from.Participating teams will be asked to choose their
-        areas of expertise and questions will be asked accordingly.\n*The last round is the audio visual round.
+        \u2022Each team must have four members.\n\u2022Each team must have a name.\n\u2022First round is the written exam (mass elimination).
+        \n\u2022Second round is the newspaper round.\n\u2022Third round is the general quizzing round from.Participating teams will be asked to choose their
+        areas of expertise and questions will be asked accordingly.\n\u2022The last round is the audio visual round.
     </string>
     <string name="TUSSLE_OF_TONGUES_RULE">
-        Round 1:\n*An individual event where the participants are required to perceive a series of pictures and speak about
-        the same for 2 minutes.\nRound 2:\n*A two on two turncoat debating round. Teams are made by the organizing committee using
+        Round 1:\n\u2022An individual event where the participants are required to perceive a series of pictures and speak about
+        the same for 2 minutes.\nRound 2:\n\u2022A two on two turncoat debating round. Teams are made by the organizing committee using
         the chit system. The two sides get a topic to debate. After 1.5 minutes, they’ll switch the side and debate the other way around.
-        Best students are selected for the last round (They need not be from the same team)\nRound 3:\n* An extemporal speech for 2 minutes
+        Best students are selected for the last round (They need not be from the same team)\nRound 3:\n\u2022 An extemporal speech for 2 minutes
         has to be made by the participants
     </string>
     <string name="NITD_MUN_RULE">No Rules</string>
     <string name="WORDSMITHS_WONDERLAND_RULE">
-        *Team participation is required for this event. A team of 2 members only, is eligible to participate.\n*In the 1st round of the quiz
-        only one member can participate and the other member can appear for the 2nd round.\n*Any team which is found not adhering to the given
+        \u2022Team participation is required for this event. A team of 2 members only, is eligible to participate.\n\u2022In the 1st round of the quiz
+        only one member can participate and the other member can appear for the 2nd round.\n\u2022Any team which is found not adhering to the given
         rules shall be subjected to disqualification.
     </string>
     <string name="FOR_BETTER_FOR_VERSE_RULE">
-        \n*The first letter of each sentence must fall in an alphabetical order. You can repeat the letters, but the order must be followed.
-        Once a stretch of alphabets used, the next cycle can be started.\n*Time duration is 1 hour.\n*Plagiarism is highly discouraged.\n*The
+        \n\u2022The first letter of each sentence must fall in an alphabetical order. You can repeat the letters, but the order must be followed.
+        Once a stretch of alphabets used, the next cycle can be started.\n\u2022Time duration is 1 hour.\n\u2022Plagiarism is highly discouraged.\n*The
         judgement would be based on the alphabetical order maintained, vocabulary, grammar, construction and {articulation, body language and
-        overall performance for top five poets} .\n*The decision of the judges is final.
+        overall performance for top five poets} .\n\u2022The decision of the judges is final.
     </string>
     <string name="BLIND_FOLD_RULE">No rule</string>
     <string name="MURRAL_PAINTING_RULE">No rules</string>
@@ -238,14 +237,14 @@
         The “ghost” of the story can also be borrowed from their favourite movie franchise. Individual participation is required.
     </string>
     <string name="GHOST_WRITING_RULE">
-        *Every submission must be of 500 words or more.\n*Individual participation is required.\nThe submission must revolve around
+        \u2022Every submission must be of 500 words or more.\n\u2022Individual participation is required.\n\u2022The submission must revolve around
         the given theme: Creatures(s) of the supernatural world borrowed from the following
         Popular cultural\nMythology\nFolklore
     </string>
     <string name="RAGEPICKERS_PURSUIT">RAGPICKER’S PURSUIT</string>
 
-    <string name="RAGEPICKERS_PURSUIT_RULE">*This is a team event. A team should be comprised of 3 – 4 students.\n*The event will be held in
-        slots each with a duration of 90 minutes.\nThe final round will have the competition among the winners of the previous rounds.\n*The participants will be judged based on the timing and the accuracy of the items collected.\n*The decision of the judges is final.</string>
+    <string name="RAGEPICKERS_PURSUIT_RULE">\u2022This is a team event. A team should be comprised of 3 – 4 students.\n\u2022The event will be held in
+        slots each with a duration of 90 minutes.\n\u2022The final round will have the competition among the winners of the previous rounds.\n\u2022he participants will be judged based on the timing and the accuracy of the items collected.\n*The decision of the judges is final.</string>
     <string name="TREASURE_HUNT">To be declared</string>
     <string name="TREASURE_HUNT_RULE">No rules</string>
 
@@ -270,5 +269,15 @@
     <string name="play_again">Play Again</string>
     <string name="insignia_description">For those seeking thrills and challenges, along with a unique forum for expressing their avant-garde opinions, Insignia is a manifestation of their most ambitious dreams. Insignia is a literature festival, spanning two days. The events being held can be classified into three categories, namely, Quizzing, Debating and Writing, interspersed with a gamut of enjoyable recreational activities. The quizzes will pose a considerable challenge to those who wish to display their mental prowess. Their minds will be titillated by the impassioned debates on myriad of societal issues. And the story tellers shall grip their pens tighter when their creativity rises to its zenith. This literary festival aspires to ascend to the pinnacles of quality, and attract more individuals to bring their unique persona to the smorgasbord of minds.</string>
     <string name="alphaz_description">Alphaz is the core organizing committee of Insignia, the annual literature fest of NIT Delhi                    Alphaz, the literary team of NIT Delhi is the core organization team of the fest. Alphaz is the debating and literary society of National Institute of Technology, Delhi. It was founded with the primary objective of creating a dimension of unorthodox learning. The events, conducted by Alphaz, train its participants to think clearly, argue coherently, and speak forcefully on any topic. Alphaz has continually endeavoured to provide our college with an unparalleled source for the oratorical and literary improvement. Yet the society has never been simply a student organization, and its influence and bonds of friendship formed survives long after the culmination of a student’s life. Alphaz faces the future confident in its traditions but cognizant of the need for innovation.</string>
+    <string name="title_activity_personal_chat">PersonalChat</string>
+    <string name="FACE_PAINTING">\u2022<b>Coordinators :</b> Amulya, Nita, Aayushi\n\u2022A team consists to two participants each.\n\u2022Requirements-Poster colors, brushes.</string>
+    <string name="MINUTE_TO_WIN">\u2022<b>Coordinators :</b> Diksha, Sanyogita, Ali\n\u2022These games are played under one minute.\n\u2022Contestants are given props depending upon which game it is and the person who completes the task in one minute, wins the game.\n\u2022These will be team events or individual events.\n\u2022These will be bet games.</string>
+    <string name="TUG_OF_WAR">\u2022<b>Coordinators :</b>Sarvan, Aditi, Aryan\n\u2022A contest in which two teams pull at opposite ends of a rope until one drags the other over a central line.</string>
+    <string name="TYPE_A_THON">\u2022<b>Coordinators :</b>Aryan, Sangeetha.\n\u2022An individual typing competition</string>
+    <string name="LETTERS_TO_JULIET">\u2022<b>Coordinators :</b> Tanushree, Julia, Sangeetha.\n\u2022People will write their worst fears and they will be put on a wall.</string>
+    <string name="GULLY_CRICKET">\u2022<b>Coordinators :</b>  Sravan, Tejesh, Nita.\n\u2022A Team of 4 members comprising of 2 boys and 2 girls shall be drawn against each other.\n\u2022Bet game.</string>
+    <string name="BELLY_BALLOON">\u2022<b>Coordinators :</b> Sanjana, Aayushi, Amulya.\n\u2022AParticipants move the balloons held between them and move it up from bottom to top or perform activities.</string>
+    <string name="UFF_MIRCHI">\u2022<b>Coordinators :</b>  Soumesh, Shehnaaz.\n\u2022A chilli eating competition</string>
+    <string name="RING_TOSS">\u2022<b>Coordinators :</b>Julia, , Nitika, Soumesh.\n\u2022Participants toss a ring and snag a prize.</string>
 
 </resources>

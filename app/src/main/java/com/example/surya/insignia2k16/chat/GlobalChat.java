@@ -21,6 +21,8 @@ import com.example.surya.insignia2k16.Constants;
 import com.example.surya.insignia2k16.R;
 import com.example.surya.insignia2k16.chat.auth.Login;
 import com.example.surya.insignia2k16.chat.model.Messages;
+import com.example.surya.insignia2k16.events_main.MainActivity;
+import com.example.surya.insignia2k16.welcomeScreens.PrefManager;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
@@ -103,15 +105,7 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
 
                 SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
 
-//                if (!model.getPhotoUrl().equals("a")){
-//                    Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_out);
-//                    Picasso.with(GlobalChat.this).load(model.getPhotoUrl()).fit().into(viewHolder.mImageView_in);
-//                }else{
-//                    viewHolder.mImageView_in.setBackgroundResource(R.drawable.ic_person_black_36dp);
-//                    viewHolder.mImageView_out.setBackgroundResource(R.drawable.ic_person_black_36dp);
-//                }
-
-                if (Constants.USERNAME.equals(model.getUser())) {
+                if (mFirebaseUser.getDisplayName().equals(model.getUser())) {
                     viewHolder.mLinearLayout_out.setVisibility(View.VISIBLE);
                     viewHolder.mLinearLayout_in.setVisibility(View.INVISIBLE);
                     viewHolder.mImageView_in.setVisibility(View.INVISIBLE);
@@ -206,6 +200,8 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
 
         String message = mEditText.getText().toString().replaceAll("\\\\n","");
 
+        Toast.makeText(GlobalChat.this, mFirebaseUser.getDisplayName(), Toast.LENGTH_SHORT).show();
+        
         if (!message.trim().equals("")){
             mEditText.setText("");
             Messages messages;
@@ -224,6 +220,12 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
     }
 

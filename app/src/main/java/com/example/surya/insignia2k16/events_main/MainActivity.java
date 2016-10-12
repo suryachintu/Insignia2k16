@@ -25,9 +25,12 @@ import com.example.surya.insignia2k16.Constants;
 import com.example.surya.insignia2k16.R;
 import com.example.surya.insignia2k16.about.AboutInsignia;
 import com.example.surya.insignia2k16.chat.GlobalChat;
+import com.example.surya.insignia2k16.chat.PersonalChat;
 import com.example.surya.insignia2k16.chat.auth.Login;
 import com.example.surya.insignia2k16.instafeed.Instafeed;
 import com.example.surya.insignia2k16.locate.Locate;
+import com.example.surya.insignia2k16.welcomeScreens.PrefManager;
+import com.example.surya.insignia2k16.welcomeScreens.WelcomeActivity;
 import com.google.android.gms.appinvite.AppInvite;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.android.gms.appinvite.AppInviteInvitationResult;
@@ -63,6 +66,9 @@ public class MainActivity extends AppCompatActivity
     ImageView mImageView;
     private TextView mTextView;
     private Events_Adapter myAdapter;
+    private PrefManager prefManager;
+//    ArrayList<EventsModel> eventsModels;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +76,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PersonalChat.class));
+            }
+        });
 
         // Initialize Firebase Remote Config.
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
@@ -84,17 +98,9 @@ public class MainActivity extends AppCompatActivity
         // available. Eg: if an error occurred fetching values from the server.
         Map<String, Object> defaultConfigMap = new HashMap<>();
         defaultConfigMap.put("event_venue", "To be declared");
-        defaultConfigMap.put("event1", "To be declared");
-        defaultConfigMap.put("event2", "To be declared");
-        defaultConfigMap.put("event3", "To be declared");
-        defaultConfigMap.put("event4", "To be declared");
-        defaultConfigMap.put("event5", "To be declared");
-        defaultConfigMap.put("event6", "To be declared");
-        defaultConfigMap.put("event7", "To be declared");
-        defaultConfigMap.put("event8", "To be declared");
-        defaultConfigMap.put("event9", "To be declared");
-        defaultConfigMap.put("event10", "To be declared");
-
+        for (int i = 0; i < Constants.mEvents_names.length; i++) {
+            defaultConfigMap.put("event" + i, "To be declared");
+        }
         // Apply config settings and default values.
         mRemoteConfig.setConfigSettings(firebaseRemoteConfigSettings);
         mRemoteConfig.setDefaults(defaultConfigMap);
@@ -135,8 +141,7 @@ public class MainActivity extends AppCompatActivity
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
 
-                        if (Constants.FLAGARRAY[position]) {
-                            Toast.makeText(MainActivity.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
+                        if (position<Constants.eventsModels.size()) {
                             Intent intent = new Intent(MainActivity.this, detail_events.class);
                             intent.putExtra("p", position);
                             startActivity(intent);
@@ -214,7 +219,7 @@ public class MainActivity extends AppCompatActivity
                             // There has been an error fetching the config
                             Log.w("hi", "Error fetching config: " +
                                     e.getMessage());
-                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Error in fetching updates", Toast.LENGTH_SHORT).show();
                             applyRetrievedLengthLimit();
                         }
                     });
@@ -223,12 +228,25 @@ public class MainActivity extends AppCompatActivity
 
     private void applyRetrievedLengthLimit() {
 
+
          Constants.event_name = mRemoteConfig.getString("event_venue");
          String name = "event";
-            for (int i = 0; i < Constants.FLAGARRAY.length; i++) {
-                 Constants.FLAGARRAY[i] = mRemoteConfig.getBoolean(name + i);
+         int j=0;
+        for (int i = 0; i < 12; i++) {
+            Constants.eventsModels.clear();
+            Constants.FLAGARRAY[i] = mRemoteConfig.getBoolean(name + i);
+               j = 0;
+        }
+
+        for (int i = 0; i < 12; i++) {
+            if (Constants.FLAGARRAY[i]){
+              Constants.eventsModels.add(j,new EventsModel(Constants.mEvents_names[i],Constants.mVenues[i],Constants.mEvent_cordinators[i],Constants.mEvent_time[i],
+                                            Constants.mEvents_description[i],Constants.mEvents_posters[i]));
+                j++;
             }
-         myAdapter.notifyDataSetChanged();
+        }
+
+        myAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -257,7 +275,11 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            mFirebaseAuth.signOut();
+
+            if (prefManager.islogged())
+                prefManager.setUserLoggedIn(false);
+            else
+                mFirebaseAuth.signOut();
             startActivity(new Intent(MainActivity.this,Login.class));
             finish();
             return true;
@@ -278,7 +300,11 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_chat) {
 
-            startActivity(new Intent(MainActivity.this,GlobalChat.class));
+            if (prefManager.islogged()){
+                Toast.makeText(MainActivity.this, "Requires Google Sign In", Toast.LENGTH_LONG).show();
+            }else {
+                startActivity(new Intent(MainActivity.this, GlobalChat.class));
+            }
 
         } else if (id == R.id.nav_Instafeed) {
 
@@ -363,25 +389,43 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-        boolean flag = getIntent().getBooleanExtra("guest",false);
+        prefManager = new PrefManager(this);
 
-        if (flag){
-            mTextView.setText("Guest");
+//        Toast.makeText(MainActivity.this, "hi" + prefManager.islogged(), Toast.LENGTH_SHORT).show();
+
+        if (prefManager.isFirstTimeLaunch()) {
+//            launchHomeScreen();
+            startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+            finish();
+            return;
         }
-        else {
-            if (mFirebaseUser == null) {
-                Toast.makeText(MainActivity.this, "null", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, Login.class));
-                finish();
-                return;
+        if (!prefManager.islogged() && mFirebaseUser == null){
+//            Toast.makeText(MainActivity.this, "goto login", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,Login.class));
+            finish();
+            return;
+        }else {
+
+            if (prefManager.islogged()){
+                mTextView.setText("Guest");
+          }
+            else {
+                if (mFirebaseUser == null) {
+                    startActivity(new Intent(MainActivity.this, Login.class));
+                    finish();
+                    return;
+                }
+                else{
+//                    mReference.child("users").
+                    mTextView.setText(mFirebaseUser.getDisplayName());
+                    mTextView.setText(mFirebaseUser.getEmail());
+                    if (mFirebaseUser.getPhotoUrl() != null)
+                        Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(mImageView);
+                }
+
             }
-            if (mFirebaseUser.getDisplayName() != null)
-                mTextView.setText(mFirebaseUser.getDisplayName());
-            else
-                mTextView.setText(mFirebaseUser.getEmail());
-            if (mFirebaseUser.getPhotoUrl() != null)
-                Picasso.with(this).load(mFirebaseUser.getPhotoUrl()).into(mImageView);
         }
+
     }
 
     @Override

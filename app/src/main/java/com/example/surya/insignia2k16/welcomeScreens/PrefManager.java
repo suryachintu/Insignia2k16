@@ -15,9 +15,12 @@ public class PrefManager {
     int PRIVATE_MODE = 0;
 
     // Shared preferences file name
-    private static final String PREF_NAME = "androidhive-welcome";
+    private static final String PREF_NAME = "insignia";
 
     private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
+
+    private static final String LOGGED = "logged";
+
 
     public PrefManager(Context context) {
         this._context = context;
@@ -30,8 +33,16 @@ public class PrefManager {
         editor.commit();
     }
 
+    public void setUserLoggedIn(boolean loggedIn) {
+        editor.putBoolean(LOGGED, loggedIn);
+        editor.commit();
+    }
+
     public boolean isFirstTimeLaunch() {
         return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
+    }
+    public boolean islogged() {
+        return pref.getBoolean(LOGGED, false);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.surya.insignia2k16.about;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 import com.example.surya.insignia2k16.R;
+import com.example.surya.insignia2k16.events_main.MainActivity;
 
 public class AboutInsignia extends AppCompatActivity {
 
@@ -28,7 +31,12 @@ public class AboutInsignia extends AppCompatActivity {
         setSupportActionBar(mActionBarToolbar);
         getSupportActionBar().setTitle("About Insignia");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        mActionBarToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AboutInsignia.this, MainActivity.class));
+            }
+        });
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);

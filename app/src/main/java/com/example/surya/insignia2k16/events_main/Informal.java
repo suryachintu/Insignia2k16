@@ -7,6 +7,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.WindowDecorActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -58,15 +59,15 @@ public class Informal extends AppCompatActivity {
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
 
-                        Toast.makeText(Informal.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(Informal.this, Constants.mEvents_names[position] + position, Toast.LENGTH_SHORT).show();
                         final Dialog dialog = new Dialog(Informal.this);
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                         dialog.setContentView(R.layout.dialog_informal);
                         Button btn = (Button) dialog.findViewById(R.id.dialog_btn);
                         TextView mTextView = (TextView)dialog.findViewById(R.id.dialog_event_name);
                         TextView description = (TextView)dialog.findViewById(R.id.dialog_description_text);
-                        description.setText(Constants.mEvents_description[position]);
-                        mTextView.setText(Constants.mEvents_names[position]);
+                        mTextView.setText(Constants.mEvents_Informal[position]);
+                        description.setText(getString(Constants.mEvents_Informal_description[position]));
                         dialog.show();
                         btn.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -75,31 +76,10 @@ public class Informal extends AppCompatActivity {
                             }
                         });
 
-
                     }
                 })
         );
 
-    }
-
-    public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
-
-        private int mItemOffset;
-
-        public ItemOffsetDecoration(int itemOffset) {
-            mItemOffset = itemOffset;
-        }
-
-        public ItemOffsetDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
-            this(context.getResources().getDimensionPixelSize(itemOffsetId));
-        }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                                   RecyclerView.State state) {
-            super.getItemOffsets(outRect, view, parent, state);
-            outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
-        }
     }
 
 }

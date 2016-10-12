@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_height="match_parent"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:elevation="4dp"
+        app:cardBackgroundColor="#F0F8FF"
         android:id="@+id/cv">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -34,15 +39,34 @@
                 android:textColor="#333"
                 android:text="@string/insignia_description"/>
 
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:elevation="4dp"
+        app:cardBackgroundColor="#F0F8FF"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/aplhazHeader"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/person_name"
                 android:textColor="@color/color_textHeaders"
                 android:text="ALPHAZ"
-                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
                 android:textSize="40sp"/>
 
             <TextView
@@ -53,10 +77,11 @@
                 android:text="@string/alphaz_description"
                 android:textSize="20sp"
                 android:textColor="#333"/>
-        </RelativeLayout>
+        </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
-</FrameLayout>
+
+</LinearLayout>
 
 </ScrollView>

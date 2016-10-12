@@ -26,14 +26,8 @@ public class TestRecyclerViewAdapter2 extends RecyclerView.Adapter<TestRecyclerV
 
     List<Object> contents;
 
-    static final int TYPE_HEADER = 0;
-    static final int TYPE_CELL = 1;
     int lastPosition=-1;
     Context context1;
-    TextView personName;
-    TextView personAge;
-    ImageView personPhoto;
-
     public TestRecyclerViewAdapter2(List<Object> contents) {
         this.contents = contents;
     }
@@ -45,12 +39,12 @@ public class TestRecyclerViewAdapter2 extends RecyclerView.Adapter<TestRecyclerV
   /*  public TestRecyclerViewAdapter22(List<Object> contents) {this.contents = contents;
     }*/
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class PersonViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
-        TextView personName;
-        TextView personAge;
-        ImageView personPhoto;
+        TextView SponserName;
+        TextView SponserType;
+        ImageView SponserImg;
         Context context;
         FrameLayout container;
 
@@ -59,47 +53,47 @@ public class TestRecyclerViewAdapter2 extends RecyclerView.Adapter<TestRecyclerV
 
             context = itemView.getContext();
             cv = (CardView) itemView.findViewById(R.id.card_view);
-            personName = (TextView) itemView.findViewById(R.id.person_name);
-            personAge = (TextView) itemView.findViewById(R.id.person_contact);
-            personPhoto = (ImageView) itemView.findViewById(R.id.person_photo);
+            SponserName = (TextView) itemView.findViewById(R.id.sponserName);
+            SponserType = (TextView) itemView.findViewById(R.id.sponserType);
+            SponserImg = (ImageView) itemView.findViewById(R.id.sponserImg);
             container=(FrameLayout)itemView.findViewById(R.id.frame_layout);
-            cv.setOnClickListener(this);
+//            cv.setOnClickListener(this);
 
         }
-
-        @Override
-        public void onClick(View v) {
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            // RecyclerView.ViewHolder holder = (RecyclerView.ViewHolder) v.getTag();
-            int position = /*holder*/getAdapterPosition();
-            switch (position) {
-                case 0:
-
-                    i.setData(Uri.parse("http://www.google.com"));
-
-                    break;
-
-                case 1:
-                    i.setData(Uri.parse("http://www.youtube.com"));
-                    break;
-
-                default:
-                    i.setData(Uri.parse("http://www.facebook.com"));
-                    break;
-            }
-            context.startActivity(i);
-        }
+//
+//        @Override
+//        public void onClick(View v) {
+//            Intent i = new Intent(Intent.ACTION_VIEW);
+//            // RecyclerView.ViewHolder holder = (RecyclerView.ViewHolder) v.getTag();
+//            int position = /*holder*/getAdapterPosition();
+//            switch (position) {
+//                case 0:
+//
+//                    i.setData(Uri.parse("http://www.google.com"));
+//
+//                    break;
+//
+//                case 1:
+//                    i.setData(Uri.parse("http://www.youtube.com"));
+//                    break;
+//
+//                default:
+//                    i.setData(Uri.parse("http://www.facebook.com"));
+//                    break;
+//            }
+//            context.startActivity(i);
+//        }
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        switch (position) {
-            case 0:
-                return TYPE_HEADER;
-            default:
-                return TYPE_CELL;
-        }
-    }
+//    @Override
+//    public int getItemViewType(int position) {
+//        switch (position) {
+//            case 0:
+//                return TYPE_HEADER;
+//            default:
+//                return TYPE_CELL;
+//        }
+//    }
 
     @Override
     public int getItemCount() {
@@ -121,10 +115,10 @@ public class TestRecyclerViewAdapter2 extends RecyclerView.Adapter<TestRecyclerV
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
 
-        personViewHolder.personName.setText(contents.get(i).name);
-        personViewHolder.personAge.setText(contents.get(i).phNum);
-        personViewHolder.personPhoto.setImageResource(contents.get(i).photoId);
-        setAnimation(personViewHolder.container,i);
+        personViewHolder.SponserName.setText(contents.get(i).name);
+        personViewHolder.SponserType.setText(contents.get(i).designation);
+        personViewHolder.SponserImg.setImageResource(contents.get(i).photoId);
+//        setAnimation(personViewHolder.container,i);
     }
     private void setAnimation(View viewToAnimate, int position)
     {

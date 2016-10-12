@@ -22,7 +22,7 @@ public class detail_events extends AppCompatActivity {
 
     Button mRegister_button;
     Button agree_btn,disagree_btn;
-    TextView mEventName,mDetail_description;
+    TextView mEventName,mDetail_description,Co_ods;
     private ImageView mImageView;
     private int position;
 
@@ -41,6 +41,7 @@ public class detail_events extends AppCompatActivity {
         //fonts
 
         mDetail_description = (TextView)findViewById(R.id.details_description_text);
+        Co_ods = (TextView)findViewById(R.id.co_od);
         mRegister_button = (Button)findViewById(R.id.detail_register_button);
         mImageView = (ImageView)findViewById(R.id.collapsed_image);
 
@@ -51,22 +52,22 @@ public class detail_events extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Winners Receive Certification Of Appreciation By ALPHAZ", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Available soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
         position = getIntent().getIntExtra("p",0);
-        toolbarLayout.setTitle(Constants.mEvents_names[position]);
+        toolbarLayout.setTitle(Constants.eventsModels.get(position).getEventName());
 
-
+        Co_ods.setText(Constants.eventsModels.get(position).getCo_od());
         mRegister_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registration(position);
             }
         });
-        mImageView.setImageResource(Constants.mEvents_posters[position]);
+        mImageView.setImageResource(Constants.eventsModels.get(position).getPosterId());
         mDetail_description.setText(getString(Constants.mEvents_description[position]));
 
 //

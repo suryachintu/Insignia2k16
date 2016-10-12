@@ -13,13 +13,14 @@
     tools:context="com.example.surya.insignia2k16.registration.Registration"
     tools:showIn="@layout/activity_registration">
 
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<ScrollView-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,5 +85,13 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-</ScrollView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coming Soon"
+            android:textColor="@color/color_textHeaders"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
 </RelativeLayout>

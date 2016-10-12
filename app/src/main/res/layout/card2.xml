@@ -1,53 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/frame_layout">
+    android:layout_height="220dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="4dp"
+    app:cardPreventCornerOverlap="false"
+    app:contentPadding="0dp">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="4dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="4dp"
-        app:cardPreventCornerOverlap="false"
-        app:contentPadding="0dp">
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/sponserImg"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:src="@drawable/insignia_cover"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/sponserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            >
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/person_photo"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+            android:textColor="@color/color_textHeaders"
+            android:textSize="20sp"
+            android:padding="2dp"
+            android:text="Sponser@Insignia"
+            android:gravity="center_horizontal|center_vertical"/>
 
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"/>
+        <TextView
+            android:id="@+id/sponserType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title Sponser"
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="2dp"
+            android:textColor="@color/color_textHeaders"/>
 
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/person_name"
-                android:layout_toRightOf="@+id/person_photo"
-                android:layout_alignParentTop="true"
-                android:textSize="24sp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/person_contact"
-                android:layout_toRightOf="@+id/person_photo"
-                android:layout_below="@+id/person_name"
-                />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</FrameLayout>
+</android.support.v7.widget.CardView>

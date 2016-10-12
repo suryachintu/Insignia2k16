@@ -9,9 +9,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.surya.insignia2k16.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.lang.*;
+import java.lang.Object;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +26,11 @@ import java.util.List;
  * Created by havihavish on 04-07-2016.
  */
 public class f3 extends Fragment {
-    static final boolean GRID_LAYOUT = false;
-    private static final int ITEM_COUNT = 100;
+
+    DatabaseReference reference;
+    private FirebaseRecyclerAdapter<faqs, FaqsViewHolder> mRecyclerAdapter;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private List<Object> mContentItems = new ArrayList<>();
+    RecyclerView.LayoutManager layoutManager;
 
     public static f3 newInstance() {
         return new f3();
@@ -31,42 +38,43 @@ public class f3 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recyclerview, container, false);
-    }
+        View rootView = inflater.inflate(R.layout.fragment_recyclerview, container, false);
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager;
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
-        if (GRID_LAYOUT) {
-            layoutManager = new GridLayoutManager(getActivity(), 2);
-        } else {
-            layoutManager = new LinearLayoutManager(getActivity());
-        }
+        Toast.makeText(getActivity(), "hi", Toast.LENGTH_SHORT).show();
+
+
+        layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        //Use this now
-       // mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
+        reference = FirebaseDatabase.getInstance().getReference();
 
-        mAdapter = new TestRecyclerViewAdapter3(mContentItems);
+        mRecyclerAdapter = new FirebaseRecyclerAdapter<faqs, FaqsViewHolder>(faqs.class,R.layout.card3,FaqsViewHolder.class,reference.child("f")) {
+            @Override
+            protected void populateViewHolder(FaqsViewHolder viewHolder, faqs model, int position) {
 
-        //mAdapter = new RecyclerViewMaterialAdapter();
-        mRecyclerView.setAdapter(mAdapter);
-        if(mContentItems!=null) mContentItems.clear();
-        {
-            /*for (int i = 0; i < ITEM_COUNT; ++i) {
-                mContentItems.add(new Object());
-//            }*/
-//            mContentItems.add(new Object("What is insignia?","It is Alphaz Fest"));
-//            mContentItems.add(new Object("Who is the Director of NIT Delhi?","Sharma is the director of nit delhi"));
-//            mContentItems.add(new Object("How are You?","I am Fine but I am missing something"));
-//            mContentItems.add(new Object("What is Your team count?","Our team is of 4,Surya,Havish,Vengal,Chandan"));
-//            mContentItems.add(new Object("Where is Nit Delhi?","Nit Delhi is in Narela,Delhi"));
-//            mContentItems.add(new Object("Youtube","co sponsor"));
-//            mAdapter.notifyDataSetChanged();
+                viewHolder.answer.setText(model.getAnswer());
+                viewHolder.ques.setText(model.getQuestion());
+                Toast.makeText(getActivity(), "populate view holder", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        faqs f = new faqs("insignia","NITD");
+        mRecyclerView.setAdapter(mRecyclerAdapter);
+        return rootView;
+    }
+
+    private class FaqsViewHolder extends RecyclerView.ViewHolder{
+        public TextView ques;
+        public TextView answer;
+
+        public FaqsViewHolder(View itemView) {
+            super(itemView);
+            ques = (TextView)itemView.findViewById(R.id.ques);
+            answer = (TextView)itemView.findViewById(R.id.answer);
         }
+
     }
 }

@@ -38,10 +38,10 @@ public class WelcomeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
-        if (!prefManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
-            finish();
-        }
+//        if (!prefManager.isFirstTimeLaunch()) {
+//            launchHomeScreen();
+//            finish();
+//        }
 
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
@@ -122,7 +122,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, Login.class));
+        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
         finish();
     }
 
