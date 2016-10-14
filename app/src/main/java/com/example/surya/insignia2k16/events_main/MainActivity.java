@@ -81,8 +81,14 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PersonalChat.class));
+                
+                if (!prefManager.islogged()) {
+                    startActivity(new Intent(MainActivity.this, PersonalChat.class));
+                }else {
+                    Toast.makeText(MainActivity.this, "Requires google sign in", Toast.LENGTH_SHORT).show();
+                }
             }
+                
         });
 
         // Initialize Firebase Remote Config.
@@ -241,7 +247,7 @@ public class MainActivity extends AppCompatActivity
         for (int i = 0; i < 12; i++) {
             if (Constants.FLAGARRAY[i]){
               Constants.eventsModels.add(j,new EventsModel(Constants.mEvents_names[i],Constants.mVenues[i],Constants.mEvent_cordinators[i],Constants.mEvent_time[i],
-                                            Constants.mEvents_description[i],Constants.mEvents_posters[i]));
+                                            Constants.mEvents_description[i],Constants.mEvents_posters[i],Constants.requiredMembers[i]));
                 j++;
             }
         }

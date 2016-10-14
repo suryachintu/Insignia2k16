@@ -9,9 +9,16 @@ import java.util.ArrayList;
  */
 public class Constants {
     public static final String TIMESTAMP = "timestamp";
-    public static String USERNAME = "USERNAME";
+//    public static String USERNAME = "USERNAME";
     public static boolean FLAG = false;
     public static ArrayList<EventsModel> eventsModels = new ArrayList<>();
+
+    public static  ArrayList<String> users = new ArrayList<>();
+
+    public static Integer[] requiredMembers = {2,4,1,1,2,1,1,4,2,1,3,1};
+
+    public static String MUN_URL = "http://nitdmun.insigniathefest.com/delegate.html";
+
     public static String[] mEvents_names = {"HEX A HEX","Les Quizzerables",
                                                 "TUSSLE OF TONGUES",
                                                   "NITD MUN","WORDSMITH’S WONDERLAND","GHOST WRITING",
@@ -43,7 +50,8 @@ public class Constants {
     //tree roots
     public static String event_name = "dummy";
     public static final String MESSAGES = "messages";
-    public static final String PERSONAL_CHAT_USERS = "InsigniaHeads";
+    public static final String CHATROOMS = "CHATROOMS";
+    public static final String INBOX = "INBOX";
     public static final String[] insignia_heads = {"Surya Parsa","Aditya Chamarathi","Yoga","Tejesh"};
 
     public static String[] mEvent_time = {"5th November 2016","5th November 2016","5th November 2016","5th November 2016","5th November 2016","5th November 2016","5th November 2016","5th November 2016",

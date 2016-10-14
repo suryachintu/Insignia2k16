@@ -46,7 +46,7 @@ public class f3 extends Fragment {
 
 
         layoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(layoutManager);
+//        mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
         reference = FirebaseDatabase.getInstance().getReference();
@@ -61,7 +61,7 @@ public class f3 extends Fragment {
             }
         };
 
-        faqs f = new faqs("insignia","NITD");
+//        faqs f = new faqs("insignia","NITD");
         mRecyclerView.setAdapter(mRecyclerAdapter);
         return rootView;
     }

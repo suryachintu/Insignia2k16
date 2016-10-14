@@ -279,5 +279,6 @@
     <string name="BELLY_BALLOON">\u2022<b>Coordinators :</b> Sanjana, Aayushi, Amulya.\n\u2022AParticipants move the balloons held between them and move it up from bottom to top or perform activities.</string>
     <string name="UFF_MIRCHI">\u2022<b>Coordinators :</b>  Soumesh, Shehnaaz.\n\u2022A chilli eating competition</string>
     <string name="RING_TOSS">\u2022<b>Coordinators :</b>Julia, , Nitika, Soumesh.\n\u2022Participants toss a ring and snag a prize.</string>
+    <string name="editresponse"><u>Edit your response</u>></string>
 
 </resources>

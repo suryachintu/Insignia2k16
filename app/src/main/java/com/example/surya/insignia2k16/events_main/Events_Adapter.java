@@ -48,11 +48,11 @@ public class Events_Adapter extends RecyclerView.Adapter<Events_Adapter.MyViewHo
     public void onBindViewHolder(MyViewHolder holder, int position) {
         if (position<Constants.eventsModels.size()){
 
-            holder.mList_item_text.setText(Constants.eventsModels.get(position).getEventName());
-            holder.mList_image_view.setImageResource(Constants.eventsModels.get(position).getPosterId());
-            holder.mList_item_venue.setText(Constants.eventsModels.get(position).getEventName());
-            holder.Co_ods.setText(Constants.eventsModels.get(position).getCo_od());
-            holder.event_time.setText(Constants.eventsModels.get(position).getEvent_time());
+            holder.mList_item_text.setText(Constants.eventsModels.get(position).eventName);
+            holder.mList_image_view.setImageResource(Constants.eventsModels.get(position).posterId);
+            holder.mList_item_venue.setText(Constants.eventsModels.get(position).venue);
+            holder.Co_ods.setText(Constants.eventsModels.get(position).co_od);
+            holder.event_time.setText(Constants.eventsModels.get(position).event_time);
             holder.alphaImage.setVisibility(View.INVISIBLE);
         }else {
             holder.alphaImage.setVisibility(View.VISIBLE);

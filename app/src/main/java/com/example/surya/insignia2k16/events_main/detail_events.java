@@ -58,22 +58,22 @@ public class detail_events extends AppCompatActivity {
         });
 
         position = getIntent().getIntExtra("p",0);
-        toolbarLayout.setTitle(Constants.eventsModels.get(position).getEventName());
+        toolbarLayout.setTitle(Constants.eventsModels.get(position).eventName);
 
-        Co_ods.setText(Constants.eventsModels.get(position).getCo_od());
+        Co_ods.setText(Constants.eventsModels.get(position).co_od);
         mRegister_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registration(position);
             }
         });
-        mImageView.setImageResource(Constants.eventsModels.get(position).getPosterId());
+        mImageView.setImageResource(Constants.eventsModels.get(position).posterId);
         mDetail_description.setText(getString(Constants.mEvents_description[position]));
 
 //
     }
 
-    public void registration(int position){
+    public void registration(final int position){
 
         final Dialog dialog = new Dialog(detail_events.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -90,6 +90,7 @@ public class detail_events extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(detail_events.this,Registration.class);
+                    intent.putExtra("p",position);
                     startActivity(intent);
                     dialog.dismiss();
                 }

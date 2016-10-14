@@ -11,8 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +29,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -42,6 +43,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     FirebaseAuth mAuth;
     private GoogleApiClient mGoogleApiClient;
     private Dialog dialog;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         getSupportActionBar().hide();
 
 ////        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
         TextView login_view = (TextView)findViewById(R.id.textview);
         Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/bell_mt.ttf");
         login_view.setTypeface(typeface);
@@ -124,6 +128,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         dialog.setCancelable(false);
         dialog.show();
 
+
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -136,7 +141,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             Toast.makeText(Login.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(Login.this, "Success Login" + Constants.USERNAME, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(Login.this, "Success Login" + Constants.USERNAME, Toast.LENGTH_SHORT).show();
                             navigateToMain();
                         }
                     }
@@ -148,6 +153,11 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("USERNAME",mEmail);
         editor.apply();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+
+        Toast.makeText(Login.this, currentUser.getDisplayName(), Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(Login.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);

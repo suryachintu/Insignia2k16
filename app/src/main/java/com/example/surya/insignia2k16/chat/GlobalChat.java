@@ -68,30 +68,8 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
         mFirebaseAuth = FirebaseAuth.getInstance();
         mReference = FirebaseDatabase.getInstance().getReference();
 
-        prefs = getSharedPreferences("UserPrefs",MODE_PRIVATE);
 
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
-
-        if (Constants.FLAG){
-            //get username from google
-            mGoogleApiClient = new GoogleApiClient.Builder(this)
-                    .enableAutoManage(this,this)
-                    .addApi(Auth.GOOGLE_SIGN_IN_API)
-                    .build();
-            Constants.USERNAME = mFirebaseUser.getDisplayName();
-            if(String.valueOf(mFirebaseUser.getPhotoUrl()) != null) {
-                photoUrl = String.valueOf(mFirebaseUser.getPhotoUrl());
-
-                Toast.makeText(GlobalChat.this, mFirebaseUser.getPhotoUrl() + Constants.USERNAME, Toast.LENGTH_SHORT).show();
-            }
-
-            SharedPreferences user_prefs = getSharedPreferences("UserPrefs",MODE_PRIVATE);
-            SharedPreferences.Editor editor = user_prefs.edit();
-            editor.putString("USERNAME",Constants.USERNAME);
-            editor.putString("Profile",photoUrl);
-            editor.apply();
-        }
-        Constants.USERNAME = prefs.getString("USERNAME","Insignia_user");
 
         mLayoutManager = new LinearLayoutManager(this);
         mLayoutManager.setStackFromEnd(true);
@@ -227,6 +205,12 @@ public class GlobalChat extends AppCompatActivity implements GoogleApiClient.OnC
     protected void onStart() {
         super.onStart();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.cleanup();
     }
 
     private static class MessageViewHolder extends RecyclerView.ViewHolder {

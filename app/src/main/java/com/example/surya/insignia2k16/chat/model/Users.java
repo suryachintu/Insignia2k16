@@ -8,14 +8,21 @@ public class Users {
     String userName;
     String email;
     String photoUrl;
+    Messages messages;
 
     public Users() {
     }
 
-    public Users(String userName, String email,String photoUrl) {
+    public Users(String userName, String email, String photoUrl, Messages messages) {
         this.userName = userName;
         this.email = email;
         this.photoUrl = photoUrl;
+        messages = new Messages();
+        this.messages = messages;
+    }
+
+    public Messages getMessages() {
+        return messages;
     }
 
     public String getPhotoUrl() {

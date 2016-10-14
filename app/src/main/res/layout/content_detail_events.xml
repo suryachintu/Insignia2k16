@@ -90,5 +90,10 @@
             android:layout_centerHorizontal="true"
             android:textColor="#ffffff"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/detail_register_button"/>
+
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
