@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/person_contact"
                 android:layout_marginLeft="4dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="2.8dp"
                 android:textColor="@color/dialogHeader"
                 android:autoLink="phone"
                 android:layout_toRightOf="@+id/im1"

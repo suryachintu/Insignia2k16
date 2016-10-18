@@ -239,31 +239,43 @@
     <string name="GHOST_WRITING_RULE">
         \u2022Every submission must be of 500 words or more.\n\u2022Individual participation is required.\n\u2022The submission must revolve around
         the given theme: Creatures(s) of the supernatural world borrowed from the following
-        Popular cultural\nMythology\nFolklore
+        #Popular cultural\n#Mythology\n#Folklore
     </string>
-    <string name="RAGEPICKERS_PURSUIT">RAGPICKER’S PURSUIT</string>
+    <string name="RAGEPICKERS_PURSUIT">Doesn’t the name sound interesting.
+        A fun, but challenging event, this one is as interesting as its name suggests where a team has to perform a unique
+        and exciting set of tasks. Each team would be given a list of questions. Use your wit, answer the tricky questions and
+        bring out the best in you and your teammates. The event emphasizes nimble thinking and, above all, team work.
+        The team that manages to accomplish the tasks in the list faster with utmost accuracy will the ultimate winner</string>
 
     <string name="RAGEPICKERS_PURSUIT_RULE">\u2022This is a team event. A team should be comprised of 3 – 4 students.\n\u2022The event will be held in
         slots each with a duration of 90 minutes.\n\u2022The final round will have the competition among the winners of the previous rounds.\n\u2022he participants will be judged based on the timing and the accuracy of the items collected.\n*The decision of the judges is final.</string>
-    <string name="TREASURE_HUNT">To be declared</string>
-    <string name="TREASURE_HUNT_RULE">No rules</string>
+    <string name="TREASURE_HUNT">
+            Embrace yourself with a pirates themed Treasure Hunt. On eve of Insignia, You being the pirates ,
+        sharpen your swords and gather your army. Get set on a voyage full of riddles, brainteasers and stuff.
+        Crack the clues to win the desired Treasure. Beware pirates, it\'s not just you who is looking for the hidden treasure.
+        Put your best and find the chest.</string>
+    <string name="TREASURE_HUNT_RULE">
+        \u2022A team consisting of 3-4 people is required.\n\u2022 Teams first need to clear the qualifying test.\n
+\u2022 Selected teams will be given clues one after the other.\n
+\u2022 Any team found damaging any clue or disrupting other teams play, will be disqualified immediatley.\n\u2022 Use of phones are allowed and Judges desicion is final
+    </string>
 
     <!-- welcome screen-->
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="slide_1_title">Hello Food!</string>
-    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
+    <string name="slide_1_title">Global Chat</string>
+    <string name="slide_1_desc">Quick and easy way to group chat or ping any insignia member!</string>
 
-    <string name="slide_2_title">Movie Tickets</string>
-    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
+    <string name="slide_2_title">Instant Updates</string>
+    <string name="slide_2_desc">Push Notifications to keep you on the loop!</string>
 
-    <string name="slide_3_title">Great Discounts</string>
-    <string name="slide_3_desc">Best discounts on every single service we offer!</string>
+    <string name="slide_3_title">Locate Us</string>
+    <string name="slide_3_desc">Struck somewhere ?? Directions to join us!</string>
 
-    <string name="slide_4_title">World Travel</string>
-    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+    <string name="slide_4_title">Find us on</string>
+    <string name="slide_4_desc">Stay tuned for updates!</string>
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>

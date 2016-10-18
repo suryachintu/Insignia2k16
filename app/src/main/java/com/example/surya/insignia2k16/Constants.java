@@ -25,8 +25,8 @@ public class Constants {
                                                     "FOR BETTER, FOR VERSE","TREASURE HUNT","RAGPICKER'S PURSUIT",
                                                         "BLIND FOLD","MURAL PAINTING"
                                                             ,"COMES AROUND GOES AROUND"};
-    public static Integer[] mEvents_posters = {R.drawable.poster1,R.drawable.poster2,R.drawable.poster3,R.drawable.a,
-            R.drawable.poster4,R.drawable.poster5,R.drawable.poster6,R.drawable.poster7,R.drawable.poster7,R.drawable.poster7,R.drawable.poster7,R.drawable.a};
+    public static Integer[] mEvents_posters = {R.drawable.hexahex,R.drawable.lesquizzerables,R.drawable.deadschest,R.drawable.mun,
+            R.drawable.wordsmith,R.drawable.deadschest,R.drawable.for_bettorverse,R.drawable.deadschest,R.drawable.ragpicker,R.drawable.deadschest,R.drawable.muralpainting,R.drawable.deadschest};
 
     public static String[] mEvent_cordinators = {"Sravan,Shehnaz Sheik,Ali","Sanyogitha,Soumesh","Aditi Yadav,Amulya,Aryan",
                                                     "Avtansh Gupta,Swapnil Vijay,Julia","Diksha Sharma,Tanushree","Swathi Sharma",

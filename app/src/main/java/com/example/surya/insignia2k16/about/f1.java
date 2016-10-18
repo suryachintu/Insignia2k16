@@ -65,6 +65,7 @@ public class f1 extends Fragment {
             mContentItems.add(new Object("Yoga Sasidhar Reddy.B","8750267966","Co-Convener","141200014@nitdelhi.ac.in",R.drawable.yoga));
             mContentItems.add(new Object("Tejesh","9971574459","Hospitality","tejesh36p@gmail.com",R.drawable.tejesh));
             mContentItems.add(new Object("Sanyogitha Singh","9560494624","Sponsorship","sanyogitha.khatkar@nitdelhi.ac.in",R.drawable.sanyogita));
+            mContentItems.add(new Object("Sanyogitha Singh","9560494624","Sponsorship","sanyogitha.khatkar@nitdelhi.ac.in",R.drawable.sanyogita));
             mContentItems.add(new Object("Sai Venkata Manohar","8130129479","Print and Design","saimanohar.venkata@gmail.com",R.drawable.manohar));
             mContentItems.add(new Object("Himanshu Sharma","9953151638","Publicity","223himanshu@gmail.com",R.drawable.himanshu));
             mContentItems.add(new Object("Sravan Kumar","8527268276","Infrastructure and Logistics","sra2kumar42003210@gmail.com",R.drawable.sravan));

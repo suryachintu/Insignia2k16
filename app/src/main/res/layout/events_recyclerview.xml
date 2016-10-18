@@ -23,7 +23,7 @@
                 android:layout_width="0dp"
                 android:layout_height="170dp"
                 android:layout_weight="1"
-                android:src="@drawable/poster1"
+                android:src="@drawable/insignia_cover"
                 android:scaleType="center"/>
 
             <LinearLayout
