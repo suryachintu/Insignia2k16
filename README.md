@@ -24,8 +24,8 @@ Insignia is the annual literature fest organised by ALPHAZ at National Institue 
 ![](https://raw.githubusercontent.com/suryachintu/Insignia2k16/master/app/src/main/assets/screensots/sc_6.png)
 
 # Libraries used
-* Firebase(http://jakewharton.github.io/butterknife/)
-* Picasso(http://square.github.io/okhttp/)
+* Firebase(https://firebase.google.com/)
+* Picasso(http://square.github.io/picasso/)
 
 # Key Concepts
 * Use of firebase databases,remote config,push notifications.
