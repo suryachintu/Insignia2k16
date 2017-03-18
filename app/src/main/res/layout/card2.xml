@@ -18,7 +18,7 @@
             android:id="@+id/sponserImg"
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            android:src="@drawable/insignia_cover"
+            android:src="@drawable/main_cover"
             android:scaleType="fitXY" />
 
         <TextView
